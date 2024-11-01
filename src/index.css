@@ -2,6 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+    background-color: #11a14a; /* Set the background color to #11a14a */
+    margin: 0; /* Remove default margin */
+  }
 @font-face {
     font-family: 'Poleno';
     src: url('./Fonts/fonnts.com-251839/fonts/fonnts.com-Poleno_SemiBold.otf') format('opentype');
