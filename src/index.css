@@ -1,0 +1,29 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: 'Poleno';
+    src: url('./Fonts/fonnts.com-251839/fonts/fonnts.com-Poleno_SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Nirvana';
+    src: url('./Fonts/Nirvana/NIRVANA.TTF') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poleno';
+    src: url('./Fonts/fonnts.com-251827/fonts/fonnts.com-Poleno_Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Levnam';
+    src: url('./Fonts/fonnts.com-659320/fonts/fonnts.com-lvn95.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
