@@ -9,9 +9,9 @@ function FeatureCard({ title, brief, details }) {
     <div 
       onMouseEnter={() => setIsHovered(true)} 
       onMouseLeave={() => setIsHovered(false)} 
-      className="bg-[#11a14a] text-white p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+      className="bg-[#000000] text-white p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
     >
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <h3 className="text-xl text-[#11a14a] font-semibold mb-2">{title}</h3>
       <p className="text-sm">{isHovered ? details : brief}</p>
     </div>
   );
