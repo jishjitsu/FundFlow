@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import logo from './assets/F__4_-removebg-preview.png';
 
-function Login() {
+function Register() {
     const [error, setError] = useState(null);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Add authentication logic here
+        // Add registration logic here
     };
 
     return (
@@ -23,10 +23,10 @@ function Login() {
                         </div>
 
                         <h2 className="text-2xl font-Levnam font-semibold text-[#d9d6ba] mb-2">
-                            Welcome Back
+                            Create an Account
                         </h2>
                         <p className="font-Levnam font-medium text-[#11a14a] opacity-75 mb-6">
-                            Please sign in to your account
+                            Please fill in your details to register.
                         </p>
 
                         {error && <div className="mb-4 text-red-600">{error}</div>}
@@ -62,32 +62,36 @@ function Login() {
                                 />
                             </div>
 
-                            <div className="mb-4 font-Levnam font-medium text-[#11a14a]">
-                                <label htmlFor="rememberMe" className="flex items-center">
-                                    <input
-                                        type="checkbox"
-                                        id="rememberMe"
-                                        className="mr-2"
-                                    />
-                                    Remember Me
+                            <div className="mb-4">
+                                <label
+                                    htmlFor="confirmPassword"
+                                    className="block text-gray-700 text-sm font-bold mb-2"
+                                >
+                                    Confirm Password
                                 </label>
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#11a14a]"
+                                    required
+                                />
                             </div>
 
                             <button
                                 type="submit"
                                 className="w-full bg-[#11a14a] font-Levnam font-medium text-black py-2 rounded-md hover:bg-[#d9d6ba] transition duration-300"
                             >
-                                Login
+                                Register
                             </button>
                         </form>
 
                         <p className="font-Levnam font-medium text-[#11a14a] mt-4 text-center">
-                            No account?{' '}
+                            Already have an account?{' '}
                             <button
-                                onClick={() => window.location.href = '/register'} // Adjust the routing here
+                                onClick={() => window.location.href = '/'} // Adjust the routing here
                                 className="text-[#11a14a] hover:underline"
                             >
-                                Register here
+                                Login here
                             </button>
                         </p>
                     </div>
@@ -97,4 +101,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Register;
