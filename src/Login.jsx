@@ -13,7 +13,7 @@ function Login() {
     return (
         <div className="min-h-screen">
             <div className="flex items-center justify-center min-h-screen">
-                <div className="w-1/4 bg-black bg-black rounded-lg border-2 border-black/35 hover:shadow-black/50 hover:shadow-lg transition-shadow duration-300">
+                <div className="w-1/4 bg-black rounded-lg border-2 border-black/35 hover:shadow-black/50 hover:shadow-lg transition-shadow duration-300">
                     <div className="p-6">
                         <div className="flex items-center justify-center mb-4">
                         <div className="flex items-center justify-center mb-2">
@@ -40,7 +40,7 @@ function Login() {
                             <div className="font-Levnam font-medium mb-4">
                                 <label
                                     htmlFor="email"
-                                    className="block font-Levnam font-medium text-[#11a14a] text-sm font-bold mb-2"
+                                    className="block font-Levnam font-medium text-[#11a14a] text-sm mb-2"
                                 >
                                     Email Address
                                 </label>
@@ -97,7 +97,7 @@ function Login() {
 
                             <button
                                 type="submit"
-                                className="w-full bg-[#11a14a] font-Levnam font-medium text-black font-bold py-2 rounded-md hover:bg-[#d9d6ba] transition duration-300"
+                                className="w-full bg-[#11a14a] font-Levnam font-medium text-black py-2 rounded-md hover:bg-[#d9d6ba] transition duration-300"
                             >
                                 {isRegistering ? 'Register' : 'Login'}
                             </button>
