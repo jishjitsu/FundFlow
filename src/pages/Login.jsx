@@ -9,10 +9,12 @@ function Login({ onLogin }) {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
     const [error, setError] = useState(null);
+    const [successMessage, setSuccessMessage] = useState(null); // New state for success message
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setError(null);
+        setSuccessMessage(null); // Reset success message on submit
 
         if (isRegistering && password !== confirmPassword) {
             setError('Passwords do not match');
@@ -37,6 +39,11 @@ function Login({ onLogin }) {
                 onLogin(token); // Pass token to parent for authentication
                 // Reset form fields
                 resetForm();
+            }
+
+            // Set success message on registration success
+            if (isRegistering) {
+                setSuccessMessage('Registration successful! You can now log in.'); // Set success message
             }
         } catch (err) {
             // Provide more specific error feedback
@@ -77,6 +84,7 @@ function Login({ onLogin }) {
                         </p>
 
                         {error && <div className="mb-4 text-red-600">{error}</div>}
+                        {successMessage && <div className="mb-4 text-green-600">{successMessage}</div>} {/* Display success message */}
 
                         <form onSubmit={handleSubmit}>
                             <div className="font-Levnam font-medium mb-4">
