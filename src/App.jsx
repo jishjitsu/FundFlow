@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
-import Sectors from './pages/Sectors';
+import Dashboard from './pages/Dashboard';
 import Technology from './pages/sectors/Technology';
 import Film from './pages/sectors/Film';
 import Games from './pages/sectors/Games';
 import Healthcare from './pages/sectors/Healthcare';
 import Environment from './pages/sectors/Environment';
 import Art from './pages/sectors/Art';
+import Navbar from './Navs/Navbar';
 import logo from './assets/F__4_-removebg-preview.png';
 import buildings from './assets/Buildings.png';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
@@ -63,19 +64,13 @@ function App() {
 
   return (
     <Router>
-      <div className="bg-white app-content min-h-screen flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-semibold mb-4">Welcome to FundFlow</h1>
-        <button 
-          onClick={handleLogout} 
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
-        >
-          Logout
-        </button>
+      <div className="bg-white app-content min-h-screen flex flex-col items-center">
+        {/* Show Navbar when user is authenticated */}
+        {isAuthenticated && <Navbar onLogout={handleLogout} />}
         
-        {/* Place Routes within main authenticated view */}
         <Routes>
-          <Route path="/" element={<div>Welcome to FundFlow Home</div>} />
-          <Route path="/sectors" element={<Sectors />} />
+          <Route path="/" element={<Navigate to="/sectors" replace />} />
+          <Route path="/sectors" element={<Dashboard />} />
           <Route path="/sectors/technology" element={<Technology />} />
           <Route path="/sectors/film" element={<Film />} />
           <Route path="/sectors/games" element={<Games />} />
