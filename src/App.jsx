@@ -20,6 +20,7 @@ import Navbar from './Navs/Navbar';
 import logo from './assets/F__4_-removebg-preview.png';
 import buildings from './assets/Buildings.png';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -78,6 +79,7 @@ function App() {
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/sectors" element={<Dashboard />} />
           <Route path="/sectors/technology" element={<Technology />} />
+          <Route path="/products/:productId" element={<ProductDetail />} />
           <Route path="/sectors/film" element={<Film />} />
           <Route path="/sectors/games" element={<Games />} />
           <Route path="/sectors/healthcare" element={<Healthcare />} />
