@@ -9,6 +9,9 @@ import Games from './pages/sectors/Games';
 import Healthcare from './pages/sectors/Healthcare';
 import Environment from './pages/sectors/Environment';
 import Art from './pages/sectors/Art';
+import Analytics from './pages/Analytics';
+import Message from './pages/Message';
+import Learn from './pages/Learn';
 import Navbar from './Navs/Navbar';
 import logo from './assets/F__4_-removebg-preview.png';
 import buildings from './assets/Buildings.png';
@@ -65,11 +68,10 @@ function App() {
   return (
     <Router>
       <div className="bg-white app-content min-h-screen flex flex-col items-center">
-        {/* Show Navbar when user is authenticated */}
         {isAuthenticated && <Navbar onLogout={handleLogout} />}
         
         <Routes>
-          <Route path="/" element={<Navigate to="/sectors" replace />} />
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/sectors" element={<Dashboard />} />
           <Route path="/sectors/technology" element={<Technology />} />
           <Route path="/sectors/film" element={<Film />} />
@@ -77,6 +79,10 @@ function App() {
           <Route path="/sectors/healthcare" element={<Healthcare />} />
           <Route path="/sectors/environment" element={<Environment />} />
           <Route path="/sectors/art" element={<Art />} />
+          <Route path="/pages/analytics" element={<Analytics />} />
+          <Route path="/pages/sectors" element={<Dashboard />} />
+          <Route path="/pages/message" element={<Message />} />
+          <Route path="/pages/learn" element={<Learn />} />
         </Routes>
       </div>
     </Router>
