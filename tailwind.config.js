@@ -2,6 +2,9 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
+
   ],
   theme: {
     extend: {
@@ -16,5 +19,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@headlessui/react'), require('@tremor/react')],
 }
