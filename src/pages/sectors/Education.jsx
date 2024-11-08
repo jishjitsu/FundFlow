@@ -16,9 +16,9 @@ const sectors = [
   {name: "Nonprofit", description: "Invest in helping humanity"},
 ];
 
-const Film = () => {
+const Education = () => {
   const navigate = useNavigate();
-  const [selectedSector, setSelectedSector] = useState("Film");
+  const [selectedSector, setSelectedSector] = useState("Education");
 
   const handleSectorChange = (event) => {
     const sectorName = event.target.value;
@@ -30,8 +30,8 @@ const Film = () => {
 
   return (
     <div className="min-h-screen bg-white p-8">
-      <h1 className="text-3xl font-semibold mb-4">Film Investments</h1>
-      <p>Explore Creative projects with limitless ambitions.</p>
+      <h1 className="text-3xl font-semibold mb-4">Education Investments</h1>
+      <p>Explore Education startups.</p>
 
       {/* Dropdown to select a sector */}
       <select
@@ -49,5 +49,4 @@ const Film = () => {
   );
 };
 
-export default Film;
-
+export default Education;

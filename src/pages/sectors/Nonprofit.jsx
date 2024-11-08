@@ -9,12 +9,16 @@ const sectors = [
   { name: "Games", description: "Invest in stunning concepts" },
   { name: "Film", description: "Creative projects and startups" },
   { name: "Environment", description: "Eco-friendly and sustainable initiatives" },
-  { name: "Art", description: "Invest in Art and Crafts" }
+  { name: "Education", description: "Invest in Education startups" },
+  {name: "Food", description: "Invest in Food and Beverages"},
+  {name: "Clothing", description: "Invest in Drip"},
+  {name: "Industrial", description: "Invest in innovative products"},
+  {name: "Nonprofit", description: "Invest in helping humanity"},
 ];
 
-const Art = () => {
+const Education = () => {
   const navigate = useNavigate();
-  const [selectedSector, setSelectedSector] = useState("Art");
+  const [selectedSector, setSelectedSector] = useState("Nonprofit");
 
   const handleSectorChange = (event) => {
     const sectorName = event.target.value;
@@ -26,8 +30,8 @@ const Art = () => {
 
   return (
     <div className="min-h-screen bg-white p-8">
-      <h1 className="text-3xl font-semibold mb-4">Art Investments</h1>
-      <p>Explore Works of wonder and beautiful masterpieces.</p>
+      <h1 className="text-3xl font-semibold mb-4">Non-profit Investments</h1>
+      <p>Invest in helping Humanity</p>
 
       {/* Dropdown to select a sector */}
       <select
@@ -45,4 +49,4 @@ const Art = () => {
   );
 };
 
-export default Art;
+export default Education;

@@ -8,7 +8,11 @@ import Film from './pages/sectors/Film';
 import Games from './pages/sectors/Games';
 import Healthcare from './pages/sectors/Healthcare';
 import Environment from './pages/sectors/Environment';
-import Art from './pages/sectors/Art';
+import Education from './pages/sectors/Education';
+import Clothing from './pages/sectors/Clothing';
+import Nonprofit from './pages/sectors/Nonprofit';
+import Industrial from './pages/sectors/Industrial';
+import Food from './pages/sectors/Food';
 import Analytics from './pages/Analytics';
 import Message from './pages/Message';
 import Learn from './pages/Learn';
@@ -78,7 +82,11 @@ function App() {
           <Route path="/sectors/games" element={<Games />} />
           <Route path="/sectors/healthcare" element={<Healthcare />} />
           <Route path="/sectors/environment" element={<Environment />} />
-          <Route path="/sectors/art" element={<Art />} />
+          <Route path="/sectors/education" element={<Education />} />
+          <Route path="/sectors/food" element={<Food />} />
+          <Route path="/sectors/clothing" element={<Clothing />} />
+          <Route path="/sectors/nonprofit" element={<Nonprofit />} />
+          <Route path="/sectors/industrial" element={<Industrial />} />
           <Route path="/pages/analytics" element={<Analytics />} />
           <Route path="/pages/sectors" element={<Dashboard />} />
           <Route path="/pages/message" element={<Message />} />
