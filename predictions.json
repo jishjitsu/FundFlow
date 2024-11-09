@@ -1,0 +1,92 @@
+[
+    {
+        "company_name": "DeepMind Aurora",
+        "success_score": 62.95,
+        "metrics": {
+            "total_growth_percent": 133.33,
+            "avg_monthly_growth_percent": 3.76,
+            "trend_reliability": 99.82,
+            "latest_revenue": 98000.0,
+            "predicted_next_3_months": [
+                99243.6,
+                101601.84,
+                103960.07
+            ]
+        }
+    },
+    {
+        "company_name": "IonQ Systems",
+        "success_score": 53.09,
+        "metrics": {
+            "total_growth_percent": 70.73,
+            "avg_monthly_growth_percent": 2.35,
+            "trend_reliability": 99.96,
+            "latest_revenue": 140000.0,
+            "predicted_next_3_months": [
+                142549.3,
+                145017.05,
+                147484.81
+            ]
+        }
+    },
+    {
+        "company_name": "Polygon Labs",
+        "success_score": 60.39,
+        "metrics": {
+            "total_growth_percent": 93.55,
+            "avg_monthly_growth_percent": 2.92,
+            "trend_reliability": 99.96,
+            "latest_revenue": 120000.0,
+            "predicted_next_3_months": [
+                122549.3,
+                125017.05,
+                127484.81
+            ]
+        }
+    },
+    {
+        "company_name": "Intuitive Surgical",
+        "success_score": 46.86,
+        "metrics": {
+            "total_growth_percent": 51.67,
+            "avg_monthly_growth_percent": 1.83,
+            "trend_reliability": 99.65,
+            "latest_revenue": 182000.0,
+            "predicted_next_3_months": [
+                185772.82,
+                188337.04,
+                190901.26
+            ]
+        }
+    },
+    {
+        "company_name": "Moderna Tech",
+        "success_score": 40.97,
+        "metrics": {
+            "total_growth_percent": 33.33,
+            "avg_monthly_growth_percent": 1.26,
+            "trend_reliability": 99.89,
+            "latest_revenue": 240000.0,
+            "predicted_next_3_months": [
+                242715.31,
+                245202.72,
+                247690.13
+            ]
+        }
+    },
+    {
+        "company_name": "Fitbit Care",
+        "success_score": 64.64,
+        "metrics": {
+            "total_growth_percent": 263.64,
+            "avg_monthly_growth_percent": 5.81,
+            "trend_reliability": 99.96,
+            "latest_revenue": 80000.0,
+            "predicted_next_3_months": [
+                82549.3,
+                85017.05,
+                87484.81
+            ]
+        }
+    }
+]
