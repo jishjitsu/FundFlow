@@ -210,7 +210,7 @@ const RiskAssessment = () => {
             color: '#ffffff',
             opacity: '0.9'
           }}>Now that you know your risk level, check out the best startup investment opportunities for you.</p>
-          <button onClick={() => navigate('/pages/learn/investors')} className="cta-button">
+          <button onClick={() => navigate('/invest')} className="cta-button">
             Explore Startup Investment Options
           </button>
         </section>

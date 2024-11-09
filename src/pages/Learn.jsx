@@ -80,7 +80,7 @@ const Learn = () => {
         onClick={() => navigate('/pages/learn/investors')}
       >
         <div style={cardContentStyle}>
-          <h1 style={titleStyle}>Investors</h1>
+          <h1 style={titleStyle}>Resources</h1>
           <p style={descriptionStyle}>
             Discover essential insights on connecting with the right investors to fund your projects and bring your ideas to life. Learn how to present your value and build lasting partnerships.
           </p>

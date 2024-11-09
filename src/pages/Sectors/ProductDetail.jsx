@@ -14,8 +14,8 @@ const ProductDetails = () => {
   }
 
   // Calculate the fundraising progress
-  const fundsGenerated = parseInt(product.fundsGenerated.replace(/[$,]/g, ''));
-  const minimumInvestment = parseInt(product.minimumInvestment.replace(/[$,]/g, ''));
+  const fundsGenerated = parseInt(product.fundsGenerated.replace(/[₹,]/g, ''));
+  const minimumInvestment = parseInt(product.minimumInvestment.replace(/[₹,]/g, ''));
   const progressPercentage = Math.min((fundsGenerated / minimumInvestment) * 100, 100);
 
   return (
