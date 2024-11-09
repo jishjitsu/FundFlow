@@ -34,11 +34,20 @@ const data = [
   { date: 'Aug 20', 'ETF Shares Vital': 3052.1, 'Vitainvest Core': 6782.3, 'iShares Tech Growth': 10801.7 },
 ];
 
+const transactions = [
+  { date: 'Aug 01', company: 'ETF Shares Vital', amount: 2100.2 },
+  { date: 'Aug 02', company: 'Vitainvest Core', amount: 2150.3 },
+  { date: 'Aug 03', company: 'iShares Tech Growth', amount: 2200.4 },
+  { date: 'Aug 04', company: 'ETF Shares Vital', amount: 2250.5 },
+  { date: 'Aug 05', company: 'Vitainvest Core', amount: 2300.6 },
+  { date: 'Aug 06', company: 'iShares Tech Growth', amount: 2350.7 },
+];
+
 const valueFormatter = (number) => `$${Intl.NumberFormat('us').format(number)}`;
 
 export default function AnalyticsPage() {
   return (
-    <div className="space-y-6 p-4 bg-black text-white"> {/* Dark background with white text */}
+    <div className="h-full flex flex-col space-y-6 p-4 bg-black text-white">
       {/* Portfolio Cards Section */}
       <div className="grid grid-cols-4 gap-4">
         <Card>
@@ -59,39 +68,63 @@ export default function AnalyticsPage() {
         </Card>
       </div>
 
-      {/* Line Chart Section */}
-      <div>
-        <LineChart
-          data={data}
-          index="date"
-          categories={['ETF Shares Vital', 'Vitainvest Core', 'iShares Tech Growth']}
-          colors={['#1f77b4', '#ff7f0e', '#2ca02c']} // Line colors
-          lineThickness={3}
-          valueFormatter={valueFormatter}
-          yAxisWidth={80}
-          showMarkers
-          className="h-96"
-          // Style the chart to have a white background
-          style={{
-            backgroundColor: '#ffffff', // White background for the chart
-            borderRadius: '8px',
-            color: '#000', // Black text for the chart
-          }}
-        />
+      {/* Layout with Line Chart and Transaction Table Side-by-Side */}
+      <div className="flex flex-col lg:flex-row gap-8 flex-grow">
+        {/* Line Chart Section */}
+        <div className="flex-1">
+          <LineChart
+            data={data}
+            index="date"
+            categories={['ETF Shares Vital', 'Vitainvest Core', 'iShares Tech Growth']}
+            colors={['#1f77b4', '#ff7f0e', '#2ca02c']}
+            lineThickness={3}
+            valueFormatter={valueFormatter}
+            yAxisWidth={80}
+            showMarkers
+            className="h-96"
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '8px',
+              color: '#000',
+            }}
+          />
+        </div>
+
+        {/* Investment Transactions Table Section */}
+        <div className="flex-1">
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableHeaderCell className="text-white">Date</TableHeaderCell>
+                <TableHeaderCell className="text-white">Company</TableHeaderCell>
+                <TableHeaderCell className="text-right text-white">Amount ($)</TableHeaderCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {transactions.map((transaction, index) => (
+                <TableRow key={index}>
+                  <TableCell className="text-white">{transaction.date}</TableCell>
+                  <TableCell className="text-white">{transaction.company}</TableCell>
+                  <TableCell className="text-right text-white">{valueFormatter(transaction.amount)}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </div>
 
       {/* Sales Table Section */}
       <Table className="mt-8">
         <TableHead>
           <TableRow>
-            <TableHeaderCell className="text-white">Company</TableHeaderCell> {/* White text for header */}
-            <TableHeaderCell className="text-right text-white">Sales ($)</TableHeaderCell> {/* White text for header */}
+            <TableHeaderCell className="text-white">Company</TableHeaderCell>
+            <TableHeaderCell className="text-right text-white">Sales ($)</TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell className="text-white">ETF Shares Vital</TableCell> {/* White text for body */}
-            <TableCell className="text-right text-white">$210,000</TableCell> {/* White text for body */}
+            <TableCell className="text-white">ETF Shares Vital</TableCell>
+            <TableCell className="text-right text-white">$210,000</TableCell>
           </TableRow>
           <TableRow>
             <TableCell className="text-white">Vitainvest Core</TableCell>

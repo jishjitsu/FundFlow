@@ -168,16 +168,20 @@ const styles = {
     width: '50px',
     height: '50px',
     borderRadius: '50%',
-    backgroundColor: '#4CAF50',
-    color: 'white',
+    backgroundColor: '#1c1c1c', // Dark background for the button
+    color: '#00FF00', // Neon green text
     border: 'none',
     cursor: 'pointer',
     fontSize: '20px',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.6)', // Darker shadow for a futuristic look
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     transition: 'all 0.3s ease',
+    ':hover': {
+      backgroundColor: '#333333', // Slightly lighter on hover
+      border: '2px solid #00FF00', // Neon green border on hover
+    },
   },
   chatWindow: {
     position: 'absolute',
@@ -185,24 +189,26 @@ const styles = {
     right: '0px',
     width: '350px',
     height: '500px',
-    backgroundColor: '#fff',
+    backgroundColor: '#121212', // Dark background for chat window
     borderRadius: '10px',
-    boxShadow: '0 5px 20px rgba(0,0,0,0.2)',
+    boxShadow: '0 5px 20px rgba(0,0,0,0.8)', // Strong shadow for a futuristic look
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',
   },
   chatHeader: {
     padding: '15px',
-    backgroundColor: '#4CAF50',
-    color: 'white',
+    backgroundColor: '#1c1c1c', // Darker header with green accents
+    color: '#00FF00', // Neon green text for the header
     borderTopLeftRadius: '10px',
     borderTopRightRadius: '10px',
+    fontWeight: '700', // Bolder font for header
+    fontSize: '18px', // Slightly larger font
   },
   headerTitle: {
     margin: 0,
-    fontSize: '16px',
-    fontWeight: '600',
+    fontSize: '18px',
+    fontWeight: '700', // Bold header text
   },
   chatBody: {
     flex: 1,
@@ -211,7 +217,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '10px',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#121212', // Matching the body background to the window
   },
   message: {
     maxWidth: '80%',
@@ -222,23 +228,23 @@ const styles = {
   },
   userMessage: {
     alignSelf: 'flex-end',
-    backgroundColor: '#4CAF50',
-    color: 'white',
+    backgroundColor: '#00FF00', // Neon green for user messages
+    color: '#121212', // Dark text for user messages
     borderBottomRightRadius: '5px',
   },
   botMessage: {
     alignSelf: 'flex-start',
-    backgroundColor: 'white',
-    color: '#333',
+    backgroundColor: '#333333', // Dark background for bot messages
+    color: '#00FF00', // Neon green text for bot messages
     borderBottomLeftRadius: '5px',
-    boxShadow: '0 1px 2px rgba(0,0,0,0.1)',
+    boxShadow: '0 1px 2px rgba(0,0,0,0.5)', // Subtle shadow for bot messages
   },
   errorMessage: {
-    backgroundColor: '#ffebee',
-    color: '#c62828',
+    backgroundColor: '#ff3b30', // Red background for errors
+    color: '#fff',
   },
   loadingMessage: {
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#00FF00', // Green background for loading messages
   },
   loadingDots: {
     display: 'flex',
@@ -248,15 +254,15 @@ const styles = {
   },
   inputContainer: {
     padding: '15px',
-    borderTop: '1px solid #e0e0e0',
+    borderTop: '1px solid #333333', // Dark border for input container
     display: 'flex',
     gap: '10px',
-    backgroundColor: 'white',
+    backgroundColor: '#1c1c1c', // Dark background for input area
   },
   input: {
     flex: 1,
     padding: '10px',
-    border: '1px solid #e0e0e0',
+    border: '1px solid #444', // Darker border
     borderRadius: '20px',
     outline: 'none',
     resize: 'none',
@@ -264,13 +270,15 @@ const styles = {
     lineHeight: '1.4',
     maxHeight: '100px',
     overflowY: 'auto',
+    color: '#fff', // White text for input field
+    backgroundColor: '#121212', // Matching the input background to dark theme
   },
   sendButton: {
     width: '40px',
     height: '40px',
     borderRadius: '50%',
-    backgroundColor: '#4CAF50',
-    color: 'white',
+    backgroundColor: '#00FF00', // Neon green button
+    color: '#121212', // Dark text for the send button
     border: 'none',
     cursor: 'pointer',
     display: 'flex',
@@ -279,13 +287,14 @@ const styles = {
     fontSize: '18px',
     transition: 'all 0.3s ease',
     ':hover': {
-      backgroundColor: '#45a049',
+      backgroundColor: '#45a049', // Lighter green on hover
     },
     ':disabled': {
-      backgroundColor: '#cccccc',
+      backgroundColor: '#333333', // Disabled state color
       cursor: 'not-allowed',
     },
   },
 };
+
 
 export default Chatbot;

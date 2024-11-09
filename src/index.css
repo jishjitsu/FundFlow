@@ -31,3 +31,41 @@ body {
     font-weight: 700;
     font-style: normal;
 }
+/* Add this to your global CSS file */
+/* Text Gradient Effect for FundFlow */
+.text-gradient {
+    background: linear-gradient(49deg, #2d4de0 0%, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  /* General Button and Link Styles */
+  .navbar-link,
+  .navbar-button {
+    color: white;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  /* Hover Effect for Gradient Border with Rounded Corner */
+  .navbar-link:hover,
+  .navbar-button:hover {
+    border-image: linear-gradient(49deg, #2d4de0 0%, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%) 1;
+    color: white;
+    border-radius: 10px; /* Ensure the border-radius stays rounded */
+  }
+  
+  /* For 'Learn' Link: Gradient Text on Hover */
+  .navbar-link.learn:hover {
+    background: transparent;
+    color: white;
+    background-clip: text;
+    border-image: linear-gradient(49deg, #2d4de0 0%, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%) 1;
+    border-radius: 10px; /* Rounded border for 'Learn' link */
+  }
+  
