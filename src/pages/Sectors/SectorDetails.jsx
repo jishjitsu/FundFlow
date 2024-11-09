@@ -110,21 +110,6 @@ const sectors = [
     ]
   },
   {
-    name: "Nonprofit",
-    description: "Invest in initiatives that drive positive social impact.",
-    products: [
-      { id: 64, name: "Clean Water Projects", description: "Access to clean water.", price: "₹30.00", image: "/images/clean-water.jpg", fundsGenerated: "₹200,000", minimumInvestment: "₹8,000", daysLeft: 22 },
-      { id: 65, name: "Education for All", description: "Programs for accessible education.", price: "₹45.00", image: "/images/education.jpg", fundsGenerated: "₹300,000", minimumInvestment: "₹12,000", daysLeft: 18 },
-      { id: 66, name: "Food Security", description: "Initiatives to combat hunger.", price: "₹50.00", image: "/images/food-security.jpg", fundsGenerated: "₹500,000", minimumInvestment: "₹20,000", daysLeft: 40 },
-      { id: 67, name: "Healthcare Outreach", description: "Healthcare in remote areas.", price: "₹100.00", image: "/images/healthcare.jpg", fundsGenerated: "₹400,000", minimumInvestment: "₹15,000", daysLeft: 30 },
-      { id: 68, name: "Renewable Energy Access", description: "Solar power in underserved regions.", price: "₹80.00", image: "/images/solar-energy.jpg", fundsGenerated: "₹600,000", minimumInvestment: "₹25,000", daysLeft: 35 },
-      { id: 69, name: "Disaster Relief", description: "Aid for disaster-stricken areas.", price: "₹20.00", image: "/images/disaster-relief.jpg", fundsGenerated: "₹300,000", minimumInvestment: "₹10,000", daysLeft: 15 },
-      { id: 70, name: "Youth Empowerment", description: "Programs for youth development.", price: "₹65.00", image: "/images/youth-empowerment.jpg", fundsGenerated: "₹400,000", minimumInvestment: "₹18,000", daysLeft: 28 },
-      { id: 71, name: "Mental Health Awareness", description: "Support for mental health.", price: "₹40.00", image: "/images/mental-health.jpg", fundsGenerated: "₹250,000", minimumInvestment: "₹10,000", daysLeft: 20 },
-      { id: 72, name: "Animal Welfare", description: "Protection for animals.", price: "₹35.00", image: "/images/animal-welfare.jpg", fundsGenerated: "₹200,000", minimumInvestment: "₹9,000", daysLeft: 25 }
-    ]
-  },
-  {
     name: "Education",
     description: "Investments in educational technology and resources.",
     products: [
@@ -137,21 +122,6 @@ const sectors = [
       { id: 79, name: "Language Learning Apps", description: "Apps to learn new languages.", price: "₹15.00", image: "/images/language-app.jpg", fundsGenerated: "₹300,000", minimumInvestment: "₹10,000", daysLeft: 20 },
       { id: 80, name: "Interactive Textbooks", description: "Digital, interactive textbooks.", price: "₹40.00", image: "/images/interactive-textbook.jpg", fundsGenerated: "₹400,000", minimumInvestment: "₹20,000", daysLeft: 30 },
       { id: 81, name: "AI-Powered Tutors", description: "Personalized AI tutoring.", price: "₹200.00", image: "/images/ai-tutors.jpg", fundsGenerated: "₹1,000,000", minimumInvestment: "₹50,000", daysLeft: 45 }
-    ]
-  },
-  {
-    name: "Environment",
-    description: "Opportunities in environmental preservation and sustainability.",
-    products: [
-      { id: 82, name: "Reforestation Programs", description: "Planting trees to restore forests.", price: "₹10.00", image: "/images/reforestation.jpg", fundsGenerated: "₹400,000", minimumInvestment: "₹15,000", daysLeft: 30 },
-      { id: 83, name: "Wildlife Conservation", description: "Protecting endangered species.", price: "₹70.00", image: "/images/conservation.jpg", fundsGenerated: "₹500,000", minimumInvestment: "₹20,000", daysLeft: 25 },
-      { id: 84, name: "Plastic Pollution Cleanup", description: "Removing plastics from oceans.", price: "₹60.00", image: "/images/plastic-cleanup.jpg", fundsGenerated: "₹600,000", minimumInvestment: "₹25,000", daysLeft: 40 },
-      { id: 85, name: "Renewable Energy Initiatives", description: "Promoting solar and wind energy.", price: "₹150.00", image: "/images/renewable-energy.jpg", fundsGenerated: "₹1,000,000", minimumInvestment: "₹50,000", daysLeft: 50 },
-      { id: 86, name: "Recycling Programs", description: "Efforts to increase recycling rates.", price: "₹35.00", image: "/images/recycling.jpg", fundsGenerated: "₹200,000", minimumInvestment: "₹10,000", daysLeft: 22 },
-      { id: 87, name: "Ocean Conservation", description: "Protection of marine ecosystems.", price: "₹80.00", image: "/images/ocean-conservation.jpg", fundsGenerated: "₹300,000", minimumInvestment: "₹12,000", daysLeft: 28 },
-      { id: 88, name: "Clean Energy R&D", description: "Research in clean energy tech.", price: "₹250.00", image: "/images/clean-energy.jpg", fundsGenerated: "₹700,000", minimumInvestment: "₹30,000", daysLeft: 45 },
-      { id: 89, name: "Biodiversity Preservation", description: "Efforts to preserve biodiversity.", price: "₹100.00", image: "/images/biodiversity.jpg", fundsGenerated: "₹500,000", minimumInvestment: "₹25,000", daysLeft: 35 },
-      { id: 90, name: "Sustainable Agriculture", description: "Eco-friendly farming methods.", price: "₹50.00", image: "/images/sustainable-agriculture.jpg", fundsGenerated: "₹400,000", minimumInvestment: "₹18,000", daysLeft: 30 }
     ]
   }
 ];

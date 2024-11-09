@@ -7,7 +7,7 @@ import Invest from './pages/Invest';
 import SectorDetails from './pages/Sectors/SectorDetails'; // New component for all sector pages
 import ProductDetails from './pages/Sectors/ProductDetail';
 import Analytics from './pages/Analytics';
-import Message from './pages/Message';
+import ChatPage from './pages/chats/ChatPage';
 import Learn from './pages/Learn';
 import RiskAssessment from './pages/learn/RiskAssessment';
 import Investors from './pages/learn/Investors';
@@ -79,7 +79,7 @@ function App() {
           <Route path="/sectors/:sectorName" element={<SectorDetails />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
           <Route path="/pages/analytics" element={<Analytics />} />
-          <Route path="/pages/message" element={<Message />} />
+          <Route path="/pages/message" element={<ChatPage />} />
           <Route path="/pages/learn" element={<Learn />} />
           <Route path="/pages/learn/risk-assessment" element={<RiskAssessment />} />
           <Route path="/pages/learn/investors" element={<Investors />} />
