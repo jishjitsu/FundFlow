@@ -130,7 +130,6 @@ const SectorDetails = () => {
   const { sectorName } = useParams();
   const navigate = useNavigate();
   
-  // Find the sector based on the sectorName from URL params
   const sector = sectors.find(s => s.name.toLowerCase() === sectorName.toLowerCase());
 
   if (!sector) {
@@ -263,9 +262,6 @@ const SectorDetails = () => {
     <p style={{ ...descriptionStyle, fontSize: '0.9em' }}><strong>Days Left:</strong> {product.daysLeft} days</p>
   </div>
 </div>
-
-
-
           </div>
         ))}
       </div>

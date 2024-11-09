@@ -7,7 +7,6 @@ const ProductDetails = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
   
-  // Find the product by ID across all sectors
   const product = sectorData.flatMap(sector => sector.products)
     .find(p => p.id === parseInt(productId));
 
@@ -15,13 +14,11 @@ const ProductDetails = () => {
     return <div className="min-h-screen bg-gray-900 text-white p-8">Product not found</div>;
   }
 
-  // Get historical data from the product if it exists
   const historicalData = product.historicSales?.map(sale => ({
     month: sale.month,
     sales: parseInt(sale.revenue.replace(/[₹,]/g, ''))
   }));
 
-  // Calculate the fundraising progress
   const fundsGenerated = parseInt(product.fundsGenerated.replace(/[₹,]/g, ''));
   const minimumInvestment = parseInt(product.minimumInvestment.replace(/[₹,]/g, ''));
   const progressPercentage = Math.min((fundsGenerated / minimumInvestment) * 100, 100);
