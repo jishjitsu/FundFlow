@@ -3,8 +3,8 @@ import './index.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import SectorDetails from './pages/SectorDetails'; // New component for all sector pages
-import ProductDetails from './pages/ProductDetail';
+import SectorDetails from './pages/Sectors/SectorDetails'; // New component for all sector pages
+import ProductDetails from './pages/Sectors/ProductDetail';
 import Analytics from './pages/Analytics';
 import Message from './pages/Message';
 import Learn from './pages/Learn';
