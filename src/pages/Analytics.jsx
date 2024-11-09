@@ -1,141 +1,199 @@
-'use client';
+import React from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
-import {
-  LineChart,
-  Card,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeaderCell,
-  TableRow,
-} from '@tremor/react';
+const InvestmentDashboard = () => {
+  // Modified data for equity growth over time
+  const equityData = [
+    { date: '2023-Q1', 'DeepMind Aurora': 100000, 'Waymo Drive': 150000, 'Intuitive Surgical': 120000, 'Teladoc Health': 90000, 'Sundance Lab': 80000 },
+    { date: '2023-Q2', 'DeepMind Aurora': 120000, 'Waymo Drive': 135000, 'Intuitive Surgical': 140000, 'Teladoc Health': 85000, 'Sundance Lab': 68000 },
+    { date: '2023-Q3', 'DeepMind Aurora': 115000, 'Waymo Drive': 180000, 'Intuitive Surgical': 155000, 'Teladoc Health': 87000, 'Sundance Lab': 70000 },
+    { date: '2023-Q4', 'DeepMind Aurora': 155000, 'Waymo Drive': 200000, 'Intuitive Surgical': 170000, 'Teladoc Health': 72000, 'Sundance Lab': 65000 }
+  ];
 
-const data = [
-  { date: 'Aug 01', 'ETF Shares Vital': 2100.2, 'Vitainvest Core': 4434.1, 'iShares Tech Growth': 7943.2 },
-  { date: 'Aug 02', 'ETF Shares Vital': 2150.3, 'Vitainvest Core': 4550.7, 'iShares Tech Growth': 8100.1 },
-  { date: 'Aug 03', 'ETF Shares Vital': 2200.4, 'Vitainvest Core': 4667.8, 'iShares Tech Growth': 8255.5 },
-  { date: 'Aug 04', 'ETF Shares Vital': 2250.5, 'Vitainvest Core': 4800.3, 'iShares Tech Growth': 8400.8 },
-  { date: 'Aug 05', 'ETF Shares Vital': 2300.6, 'Vitainvest Core': 4933.0, 'iShares Tech Growth': 8550.2 },
-  { date: 'Aug 06', 'ETF Shares Vital': 2350.7, 'Vitainvest Core': 5056.1, 'iShares Tech Growth': 8700.3 },
-  { date: 'Aug 07', 'ETF Shares Vital': 2400.8, 'Vitainvest Core': 5179.4, 'iShares Tech Growth': 8850.4 },
-  { date: 'Aug 08', 'ETF Shares Vital': 2450.9, 'Vitainvest Core': 5302.7, 'iShares Tech Growth': 9000.5 },
-  { date: 'Aug 09', 'ETF Shares Vital': 2501.0, 'Vitainvest Core': 5426.0, 'iShares Tech Growth': 9150.6 },
-  { date: 'Aug 10', 'ETF Shares Vital': 2551.1, 'Vitainvest Core': 5549.3, 'iShares Tech Growth': 9300.7 },
-  { date: 'Aug 11', 'ETF Shares Vital': 2601.2, 'Vitainvest Core': 5672.6, 'iShares Tech Growth': 9450.8 },
-  { date: 'Aug 12', 'ETF Shares Vital': 2651.3, 'Vitainvest Core': 5795.9, 'iShares Tech Growth': 9600.9 },
-  { date: 'Aug 13', 'ETF Shares Vital': 2701.4, 'Vitainvest Core': 5919.2, 'iShares Tech Growth': 9751.0 },
-  { date: 'Aug 14', 'ETF Shares Vital': 2751.5, 'Vitainvest Core': 6042.5, 'iShares Tech Growth': 9901.1 },
-  { date: 'Aug 15', 'ETF Shares Vital': 2801.6, 'Vitainvest Core': 6165.8, 'iShares Tech Growth': 10051.2 },
-  { date: 'Aug 16', 'ETF Shares Vital': 2851.7, 'Vitainvest Core': 6289.1, 'iShares Tech Growth': 10201.3 },
-  { date: 'Aug 17', 'ETF Shares Vital': 2901.8, 'Vitainvest Core': 6412.4, 'iShares Tech Growth': 10351.4 },
-  { date: 'Aug 18', 'ETF Shares Vital': 2951.9, 'Vitainvest Core': 6535.7, 'iShares Tech Growth': 10501.5 },
-  { date: 'Aug 19', 'ETF Shares Vital': 3002.0, 'Vitainvest Core': 6659.0, 'iShares Tech Growth': 10651.6 },
-  { date: 'Aug 20', 'ETF Shares Vital': 3052.1, 'Vitainvest Core': 6782.3, 'iShares Tech Growth': 10801.7 },
-];
+  // Investment performance data
+  const investmentData = [
+    {
+      company: 'DeepMind Aurora',
+      sector: 'Technology',
+      initialInvestment: 100000,
+      currentValue: 155000,
+      growth: 55000,
+      growthPercentage: 55
+    },
+    {
+      company: 'Waymo Drive',
+      sector: 'Technology',
+      initialInvestment: 150000,
+      currentValue: 200000,
+      growth: 50000,
+      growthPercentage: 33.33
+    },
+    {
+      company: 'Intuitive Surgical',
+      sector: 'Healthcare',
+      initialInvestment: 120000,
+      currentValue: 170000,
+      growth: 50000,
+      growthPercentage: 41.67
+    },
+    {
+      company: 'Teladoc Health',
+      sector: 'Healthcare',
+      initialInvestment: 90000,
+      currentValue: 72000,
+      growth: -18000,
+      growthPercentage: -20
+    },
+    {
+      company: 'Sundance Lab',
+      sector: 'Film',
+      initialInvestment: 80000,
+      currentValue: 65000,
+      growth: -15000,
+      growthPercentage: -18.75
+    }
+  ];
 
-const transactions = [
-  { date: 'Aug 01', company: 'ETF Shares Vital', amount: 2100.2 },
-  { date: 'Aug 02', company: 'Vitainvest Core', amount: 2150.3 },
-  { date: 'Aug 03', company: 'iShares Tech Growth', amount: 2200.4 },
-  { date: 'Aug 04', company: 'ETF Shares Vital', amount: 2250.5 },
-  { date: 'Aug 05', company: 'Vitainvest Core', amount: 2300.6 },
-  { date: 'Aug 06', company: 'iShares Tech Growth', amount: 2350.7 },
-];
+  // Calculate total portfolio value for pie chart
+  const portfolioSummary = investmentData.map(item => ({
+    name: item.company,
+    value: item.currentValue
+  }));
 
-const valueFormatter = (number) => `$${Intl.NumberFormat('us').format(number)}`;
+  const COLORS = ['#00C49F', '#0088FE', '#FFBB28', '#FF8042', '#8884D8'];
 
-export default function AnalyticsPage() {
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0
+    }).format(value);
+  };
+
+  const calculateTotalValue = () => {
+    return investmentData.reduce((acc, curr) => acc + curr.currentValue, 0);
+  };
+
+  const calculateTotalGrowth = () => {
+    return investmentData.reduce((acc, curr) => acc + curr.growth, 0);
+  };
+
   return (
-    <div className="h-full flex flex-col space-y-6 p-4 bg-black text-white">
-      {/* Portfolio Cards Section */}
-      <div className="grid grid-cols-4 gap-4">
-        <Card>
-          <h3 className="text-lg font-bold">Portfolio</h3>
-          <p className="text-xl">$32,227.40</p>
-        </Card>
-        <Card>
-          <h3 className="text-lg font-bold">Total Profit</h3>
-          <p className="text-xl text-green-600">+$430.90</p>
-        </Card>
-        <Card>
-          <h3 className="text-lg font-bold">Total Companies</h3>
-          <p className="text-xl">3</p>
-        </Card>
-        <Card>
-          <h3 className="text-lg font-bold">Total Invested</h3>
-          <p className="text-xl">$19,698.65</p>
-        </Card>
+    <div className="min-h-screen bg-gray-900 text-white p-6">
+      {/* Summary Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 className="text-lg font-semibold mb-2">Total Portfolio Value</h3>
+          <p className="text-2xl font-bold">{formatCurrency(calculateTotalValue())}</p>
+        </div>
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 className="text-lg font-semibold mb-2">Total Growth</h3>
+          <p className={`text-2xl font-bold ${calculateTotalGrowth() >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+            {calculateTotalGrowth() >= 0 ? '+' : ''}{formatCurrency(calculateTotalGrowth())}
+          </p>
+        </div>
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 className="text-lg font-semibold mb-2">Portfolio Companies</h3>
+          <p className="text-2xl font-bold">{investmentData.length}</p>
+        </div>
       </div>
 
-      {/* Layout with Line Chart and Transaction Table Side-by-Side */}
-      <div className="flex flex-col lg:flex-row gap-8 flex-grow">
-        {/* Line Chart Section */}
-        <div className="flex-1">
-          <LineChart
-            data={data}
-            index="date"
-            categories={['ETF Shares Vital', 'Vitainvest Core', 'iShares Tech Growth']}
-            colors={['#1f77b4', '#ff7f0e', '#2ca02c']}
-            lineThickness={3}
-            valueFormatter={valueFormatter}
-            yAxisWidth={80}
-            showMarkers
-            className="h-96"
-            style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '8px',
-              color: '#000',
-            }}
-          />
+      {/* Equity Growth Chart */}
+      <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <h2 className="text-xl font-bold mb-6">Investment Growth Trends</h2>
+        <div className="h-96">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={equityData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+              <XAxis dataKey="date" stroke="#fff" />
+              <YAxis stroke="#fff" />
+              <Tooltip 
+                contentStyle={{ backgroundColor: '#1f2937', border: 'none' }}
+                labelStyle={{ color: '#fff' }}
+              />
+              <Legend />
+              {Object.keys(equityData[0])
+                .filter(key => key !== 'date')
+                .map((key, index) => (
+                  <Line 
+                    key={key}
+                    type="monotone" 
+                    dataKey={key} 
+                    stroke={COLORS[index]} 
+                    strokeWidth={2}
+                  />
+                ))
+              }
+            </LineChart>
+          </ResponsiveContainer>
         </div>
+      </div>
 
-        {/* Investment Transactions Table Section */}
-        <div className="flex-1">
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableHeaderCell className="text-white">Date</TableHeaderCell>
-                <TableHeaderCell className="text-white">Company</TableHeaderCell>
-                <TableHeaderCell className="text-right text-white">Amount ($)</TableHeaderCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {transactions.map((transaction, index) => (
-                <TableRow key={index}>
-                  <TableCell className="text-white">{transaction.date}</TableCell>
-                  <TableCell className="text-white">{transaction.company}</TableCell>
-                  <TableCell className="text-right text-white">{valueFormatter(transaction.amount)}</TableCell>
-                </TableRow>
+      {/* Investment Performance Table */}
+      <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <h2 className="text-xl font-bold mb-6">Investment Performance</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b border-gray-700">
+                <th className="text-left p-4">Company</th>
+                <th className="text-left p-4">Sector</th>
+                <th className="text-right p-4">Initial Investment</th>
+                <th className="text-right p-4">Current Value</th>
+                <th className="text-right p-4">Growth</th>
+                <th className="text-right p-4">Growth %</th>
+              </tr>
+            </thead>
+            <tbody>
+              {investmentData.map((investment) => (
+                <tr key={investment.company} className="border-b border-gray-700">
+                  <td className="p-4">{investment.company}</td>
+                  <td className="p-4">{investment.sector}</td>
+                  <td className="text-right p-4">{formatCurrency(investment.initialInvestment)}</td>
+                  <td className="text-right p-4">{formatCurrency(investment.currentValue)}</td>
+                  <td className={`text-right p-4 ${investment.growth >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                    {investment.growth >= 0 ? '+' : ''}{formatCurrency(investment.growth)}
+                  </td>
+                  <td className={`text-right p-4 ${investment.growthPercentage >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                    {investment.growthPercentage >= 0 ? '+' : ''}{investment.growthPercentage.toFixed(2)}%
+                  </td>
+                </tr>
               ))}
-            </TableBody>
-          </Table>
+            </tbody>
+          </table>
         </div>
       </div>
 
-      {/* Sales Table Section */}
-      <Table className="mt-8">
-        <TableHead>
-          <TableRow>
-            <TableHeaderCell className="text-white">Company</TableHeaderCell>
-            <TableHeaderCell className="text-right text-white">Sales ($)</TableHeaderCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <TableRow>
-            <TableCell className="text-white">ETF Shares Vital</TableCell>
-            <TableCell className="text-right text-white">$210,000</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className="text-white">Vitainvest Core</TableCell>
-            <TableCell className="text-right text-white">$334,000</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className="text-white">iShares Tech Growth</TableCell>
-            <TableCell className="text-right text-white">$493,000</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
+      {/* Portfolio Distribution */}
+      <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h2 className="text-xl font-bold mb-6">Portfolio Distribution</h2>
+        <div className="h-96">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={portfolioSummary}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+                outerRadius={150}
+                fill="#8884d8"
+                dataKey="value"
+              >
+                {portfolioSummary.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip 
+                contentStyle={{ backgroundColor: '#1f2937', border: 'none' }}
+                formatter={(value) => formatCurrency(value)}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default InvestmentDashboard;
