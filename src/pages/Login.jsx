@@ -28,12 +28,9 @@ function Login({ onLogin }) {
                 ? 'http://localhost:5000/api/register'
                 : 'http://localhost:5000/api/login';
 
-            // For login, name and role are not required, so only send email and password
-
             const response = await axios.post(endpoint, { name, email, password, role });
             const { token, userId } = response.data;
 
-            // Save token and userId to localStorage/sessionStorage if "remember me" is checked
             if (token) {
                 if (rememberMe) {
                     localStorage.setItem('token', token);
@@ -41,17 +38,14 @@ function Login({ onLogin }) {
                     sessionStorage.setItem('token', token);
                 }
 
-                // Optionally save the userId in storage
                 if (userId) {
-                    localStorage.setItem('userId', userId); // If you need to use the userId
+                    localStorage.setItem('userId', userId); 
                 }
 
-                // Pass token to parent component (onLogin function)
                 onLogin(token);
                 resetForm();
             }
 
-            // Show success message for registration
             if (isRegistering) {
                 setSuccessMessage('Registration successful! You can now log in.');
             }
