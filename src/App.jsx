@@ -101,7 +101,11 @@ import Film from './pages/sectors/Film';
 import Games from './pages/sectors/Games';
 import Healthcare from './pages/sectors/Healthcare';
 import Environment from './pages/sectors/Environment';
-import Art from './pages/sectors/Art';
+import Education from './pages/sectors/Education';
+import Clothing from './pages/sectors/Clothing';
+import Nonprofit from './pages/sectors/Nonprofit';
+import Industrial from './pages/sectors/Industrial';
+import Food from './pages/sectors/Food';
 import Analytics from './pages/Analytics';
 import Message from './pages/Message';
 import Learn from './pages/Learn';
@@ -115,6 +119,7 @@ import Navbar from './Navs/Navbar';
 import logo from './assets/F__4_-removebg-preview.png';
 import buildings from './assets/Buildings.png';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -174,11 +179,16 @@ function App() {
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/sectors/technology" element={<Technology />} />
+          <Route path="/products/:productId" element={<ProductDetail />} />
           <Route path="/sectors/film" element={<Film />} />
           <Route path="/sectors/games" element={<Games />} />
           <Route path="/sectors/healthcare" element={<Healthcare />} />
           <Route path="/sectors/environment" element={<Environment />} />
-          <Route path="/sectors/art" element={<Art />} />
+          <Route path="/sectors/education" element={<Education />} />
+          <Route path="/sectors/food" element={<Food />} />
+          <Route path="/sectors/clothing" element={<Clothing />} />
+          <Route path="/sectors/nonprofit" element={<Nonprofit />} />
+          <Route path="/sectors/industrial" element={<Industrial />} />
           <Route path="/pages/analytics" element={<Analytics />} />
           <Route path="/pages/message" element={<Message />} />
           

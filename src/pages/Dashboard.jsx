@@ -9,7 +9,11 @@ const sectors = [
   { name: "Games", description: "Invest in stunning concepts" },
   { name: "Film", description: "Creative projects and startups" },
   { name: "Environment", description: "Eco-friendly and sustainable initiatives" },
-  { name: "Art", description: "Invest in Art and Crafts" }
+  { name: "Education", description: "Invest in Education startups" },
+  {name: "Food", description: "Invest in Food and Beverages"},
+  {name: "Clothing", description: "Invest in Drip"},
+  {name: "Industrial", description: "Invest in innovative products"},
+  {name: "Nonprofit", description: "Invest in helping humanity"},
 ];
 
 const Dashboard = () => {
