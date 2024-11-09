@@ -7,7 +7,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import http from 'http';
-import axios from 'axios'; // <-- This import was missing
+import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
@@ -26,49 +26,58 @@ mongoose.connect(process.env.MONGO_URI, {
   .then(() => console.log('MongoDB connected'))
   .catch((error) => console.log('MongoDB connection error:', error));
 
-// User Schema
+// User Schema (for both Investor and Company)
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  userId: { type: String, unique: true, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  role: { type: String, enum: ['investor', 'startup'], required: true },
-  userId: { type: String, unique: true, required: true },  // Add userId to store unique ID
+  role: { type: String, enum: ['investor', 'company'], required: true },
+  
+  // Common fields
+  userId: { type: String, unique: true, required: true }, 
+
+  // Fields for Investor
+  companyName: { type: String }, // Will be empty for investors
+  sector: { type: String }, // Will be empty for investors
+  location: { type: String }, // Will be empty for investors
+
+  // Fields for Company
+  companyName: { type: String, required: function() { return this.role === 'company'; }},
+  sector: { type: String, required: function() { return this.role === 'company'; }},
+  location: { type: String, required: function() { return this.role === 'company'; }},
 });
 
 const User = mongoose.model('User', userSchema);
 
-// Chat Schema
-const chatSchema = new mongoose.Schema({
-  senderId: { type: String, required: true },  // UserId of sender (investor or owner)
-  receiverId: { type: String, required: true }, // UserId of receiver (owner or investor)
-  message: { type: String, required: true },
-  timestamp: { type: Date, default: Date.now },
-});
-
-const Chat = mongoose.model('Chat', chatSchema);
-
-// Register Route
 // Register Route
 app.post('/api/register', async (req, res) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password, role, companyName, sector, location } = req.body;
 
   try {
-    // Validate the role field (optional but a good practice)
-    if (!['investor', 'startup'].includes(role)) {
+    // Validate the role field
+    if (!['investor', 'company'].includes(role)) {
       return res.status(400).json({ error: 'Invalid role' });
     }
 
     // Generate a unique userId based on the role
     const userCount = await User.countDocuments({ role });
-    const uniqueIdPrefix = role === 'investor' ? 'INV' : 'STP';
+    const uniqueIdPrefix = role === 'investor' ? 'INV' : 'CMP';
     const userId = `${uniqueIdPrefix}${userCount + 1}`;  // Correct string interpolation
 
     // Hash the password before saving
     const hashedPassword = await bcrypt.hash(password, 10);
-    
-    // Create a new user with the generated userId
-    const newUser = new User({ name, email, password: hashedPassword, role, userId });
-    
+
+    // Create a new user based on the role
+    const newUser = new User({
+      userId,
+      email,
+      password: hashedPassword,
+      role,
+      companyName: role === 'company' ? companyName : undefined,
+      sector: role === 'company' ? sector : undefined,
+      location: role === 'company' ? location : undefined,
+    });
+
     // Save the user to the database
     await newUser.save();
 
@@ -76,7 +85,6 @@ app.post('/api/register', async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: 'Registration failed' });
   }
-  console.log('Generated User ID:', userId);  // Make sure this logs the generated user ID
 });
 
 // Login Route with JWT
@@ -97,26 +105,9 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-
-// Google Generative AI Route (optional)
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-app.post('/api/chat', async (req, res) => {
-  try {
-    const { message } = req.body;
-    
-    // Initialize the model
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-    // Generate content
-    const result = await model.generateContent(message);
-    const response = await result.response;
-    const text = await response.text();  // Make sure to await the text() function if it's a promise.
-
-    res.json({ reply: text });
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'An error occurred while processing your request.' });
-  }
+// Protected Route Example
+app.get('/api/dashboard', authenticateToken, (req, res) => {
+  res.json({ message: 'Welcome to the dashboard!' });
 });
 
 // Middleware to verify JWT token
@@ -130,12 +121,6 @@ function authenticateToken(req, res, next) {
     next();
   });
 }
-
-// Protected Route Example
-app.get('/api/dashboard', authenticateToken, (req, res) => {
-  res.json({ message: 'Welcome to the dashboard!' });
-});
-
 
 // Send a message route
 app.post('/api/chat/message', authenticateToken, async (req, res) => {
@@ -176,3 +161,4 @@ app.get('/api/chat/messages', authenticateToken, async (req, res) => {
 
 // Start Server
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+

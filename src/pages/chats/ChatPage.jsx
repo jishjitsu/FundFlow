@@ -12,12 +12,12 @@ const ChatInterface = () => {
       name: "John Smith",
       lastSeen: "today at 12:30 PM",
       messages: [
-        { sender: "other", text: "Hey, how's the AI model performance looking?", time: "10:30 AM" },
-        { sender: "user", text: "The results are promising! We're seeing a 15% improvement in accuracy.", time: "10:35 AM" },
-        { sender: "other", text: "That's fantastic news! When can we schedule a demo?", time: "10:36 AM" },
-        { sender: "user", text: "How about next Tuesday at 2 PM?", time: "10:40 AM" },
-        { sender: "other", text: "Perfect, I'll send a calendar invite.", time: "10:41 AM" },
-        { sender: "user", text: "Great, looking forward to it!", time: "10:42 AM" }
+        { sender: "user", text: "Hey, how's the AI model performance looking?", time: "10:30 AM" },
+        { sender: "other", text: "The results are promising! We're seeing a 15% improvement in accuracy.", time: "10:35 AM" },
+        { sender: "user", text: "That's fantastic news! When can we schedule a demo?", time: "10:36 AM" },
+        { sender: "other", text: "How about next Tuesday at 2 PM?", time: "10:40 AM" },
+        { sender: "user", text: "Perfect, I'll send a calendar invite.", time: "10:41 AM" },
+        { sender: "other", text: "Great, looking forward to it!", time: "10:42 AM" }
       ]
     },
     {
@@ -25,12 +25,12 @@ const ChatInterface = () => {
       name: "Sarah Johnson",
       lastSeen: "yesterday at 3:45 PM",
       messages: [
-        { sender: "other", text: "Could you share the latest testing results?", time: "2:15 PM" },
-        { sender: "user", text: "I'll prepare a detailed report by EOD.", time: "2:20 PM" },
-        { sender: "other", text: "Thanks! Include the validation metrics too.", time: "2:21 PM" },
-        { sender: "user", text: "Will do!", time: "2:22 PM" },
-        { sender: "other", text: "And the deployment timeline if possible", time: "2:25 PM" },
-        { sender: "user", text: "Sure, I'll add that section", time: "2:30 PM" }
+        { sender: "user", text: "Could you share the latest testing results?", time: "2:15 PM" },
+        { sender: "other", text: "I'll prepare a detailed report by EOD.", time: "2:20 PM" },
+        { sender: "user", text: "Thanks! Include the validation metrics too.", time: "2:21 PM" },
+        { sender: "other", text: "Will do!", time: "2:22 PM" },
+        { sender: "user", text: "And the deployment timeline if possible", time: "2:25 PM" },
+        { sender: "other", text: "Sure, I'll add that section", time: "2:30 PM" }
       ]
     }
   ];

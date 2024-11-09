@@ -4,7 +4,7 @@ import './index.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Invest from './pages/Invest';
-import SectorDetails from './pages/Sectors/SectorDetails'; // New component for all sector pages
+import SectorDetails from './pages/Sectors/SectorDetails';
 import ProductDetails from './pages/Sectors/ProductDetail';
 import Analytics from './pages/Analytics';
 import ChatPage from './pages/chats/ChatPage';
@@ -16,27 +16,36 @@ import RaiseCapital from './pages/learn/funding/RaiseCapital';
 import ReferStartup from './pages/learn/funding/ReferStartup';
 import SuccessStories from './pages/learn/funding/SuccessStories';
 import Navbar from './Navs/Navbar';
+import Dashcomp from './Dashcomp'; // Now Dashcomp
 import logo from './assets/F__4_-removebg-preview.png';
 import buildings from './assets/Buildings.png';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
+    const storedEmail = localStorage.getItem('email'); // Get the email from localStorage
+    if (token && storedEmail) {
       setIsAuthenticated(true);
+      setEmail(storedEmail);
     }
-  }, []);
+    console.log(email); // Print email to the console to check
+  }, [email]);
 
-  const handleLogin = (token) => {
+  const handleLogin = (token, email) => {
     localStorage.setItem('token', token);
+    localStorage.setItem('email', email);
     setIsAuthenticated(true);
+    setEmail(email);
+    console.log(email);
   };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
     setIsAuthenticated(false);
   };
 
@@ -66,6 +75,11 @@ function App() {
         </Parallax>
       </div>
     );
+  }
+
+  // Render Dashcomp if the email matches
+  if (email === 'okay@123') {
+    return <Dashcomp />;
   }
 
   return (
