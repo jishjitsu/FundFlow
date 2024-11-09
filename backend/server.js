@@ -28,7 +28,6 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // User Schema (for both Investor and Company)
 const userSchema = new mongoose.Schema({
-  userId: { type: String, unique: true, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   role: { type: String, enum: ['investor', 'company'], required: true },

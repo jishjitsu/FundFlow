@@ -16,7 +16,6 @@ import RaiseCapital from './pages/learn/funding/RaiseCapital';
 import ReferStartup from './pages/learn/funding/ReferStartup';
 import SuccessStories from './pages/learn/funding/SuccessStories';
 import Navbar from './Navs/Navbar';
-import Dashcomp from './Dashcomp'; // Now Dashcomp
 import logo from './assets/F__4_-removebg-preview.png';
 import buildings from './assets/Buildings.png';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
