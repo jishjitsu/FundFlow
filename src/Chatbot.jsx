@@ -23,32 +23,35 @@ const Chatbot = () => {
   const handleSendMessage = async () => {
     if (input.trim() && !isLoading) {
       setIsLoading(true);
-      
+  
       // Add user message immediately
       const userMessage = { sender: 'user', text: input.trim() };
       setMessages(prev => [...prev, userMessage]);
       const currentInput = input.trim();
       setInput(''); // Clear input immediately after sending
-
+  
+      // Add context to the question
+      const context = `You are the assistant of Fundflow, a crowdsourced investment platform. The platform helps users pool resources to invest in startups, providing community engagement, investor education, risk assessment tools, and diverse investment options. Please answer the following question in the context of the Fundflow project: `;
+      const questionWithContext = `${context} ${currentInput}`;
+  
       try {
         const response = await axios.post('http://localhost:5000/api/chat', {
-          message: currentInput
+          message: questionWithContext
         }, {
           headers: {
             'Content-Type': 'application/json'
           }
         });
-
+  
         if (response.data && response.data.reply) {
           setMessages(prev => [...prev, {
             sender: 'bot',
             text: response.data.reply
           }]);
         }
-        
       } catch (error) {
         let errorMessage = 'Sorry, I encountered an error. Please try again later.';
-        
+  
         if (error.response) {
           switch (error.response.status) {
             case 429:
@@ -63,7 +66,7 @@ const Chatbot = () => {
               break;
           }
         }
-
+  
         setMessages(prev => [...prev, {
           sender: 'bot',
           text: errorMessage,
@@ -74,6 +77,7 @@ const Chatbot = () => {
       }
     }
   };
+  
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
