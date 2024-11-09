@@ -57,13 +57,13 @@ const sectorData = [
             { month: "Apr 2023", revenue: "₹95,000" },
             { month: "May 2023", revenue: "₹98,000" },
             { month: "Jun 2023", revenue: "₹100,000" },
-            { month: "Jul 2023", revenue: "₹102,000" },
+            { month: "Jul 2023", revenue: "₹85,000" },
             { month: "Aug 2023", revenue: "₹105,000" },
-            { month: "Sep 2023", revenue: "₹108,000" },
+            { month: "Sep 2023", revenue: "₹105,000" },
             { month: "Oct 2023", revenue: "₹110,000" },
             { month: "Nov 2023", revenue: "₹112,000" },
             { month: "Dec 2023", revenue: "₹115,000" },
-            { month: "Jan 2024", revenue: "₹118,000" },
+            { month: "Jan 2024", revenue: "₹110,000" },
             { month: "Feb 2024", revenue: "₹120,000" },
             { month: "Mar 2024", revenue: "₹122,000" },
             { month: "Apr 2024", revenue: "₹125,000" },
@@ -71,8 +71,8 @@ const sectorData = [
             { month: "Jun 2024", revenue: "₹130,000" },
             { month: "Jul 2024", revenue: "₹132,000" },
             { month: "Aug 2024", revenue: "₹135,000" },
-            { month: "Sep 2024", revenue: "₹138,000" },
-            { month: "Oct 2024", revenue: "₹140,000" }
+            { month: "Sep 2024", revenue: "₹120,000" },
+            { month: "Oct 2024", revenue: "₹111,000" }
           ]
         },
         { 
@@ -96,7 +96,7 @@ const sectorData = [
             { month: "Jul 2023", revenue: "₹82,000" },
             { month: "Aug 2023", revenue: "₹85,000" },
             { month: "Sep 2023", revenue: "₹88,000" },
-            { month: "Oct 2023", revenue: "₹90,000" },
+            { month: "Oct 2023", revenue: "₹100,000" },
             { month: "Nov 2023", revenue: "₹92,000" },
             { month: "Dec 2023", revenue: "₹95,000" },
             { month: "Jan 2024", revenue: "₹98,000" },
@@ -104,9 +104,9 @@ const sectorData = [
             { month: "Mar 2024", revenue: "₹102,000" },
             { month: "Apr 2024", revenue: "₹105,000" },
             { month: "May 2024", revenue: "₹108,000" },
-            { month: "Jun 2024", revenue: "₹110,000" },
+            { month: "Jun 2024", revenue: "₹90,000" },
             { month: "Jul 2024", revenue: "₹112,000" },
-            { month: "Aug 2024", revenue: "₹115,000" },
+            { month: "Aug 2024", revenue: "₹78,000" },
             { month: "Sep 2024", revenue: "₹118,000" },
             { month: "Oct 2024", revenue: "₹120,000" }
           ]
