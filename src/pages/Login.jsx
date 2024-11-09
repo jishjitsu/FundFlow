@@ -4,17 +4,19 @@ import logo from '../assets/F__4_-removebg-preview.png';
 
 function Login({ onLogin }) {
     const [isRegistering, setIsRegistering] = useState(false);
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [role, setRole] = useState('investor');
     const [rememberMe, setRememberMe] = useState(false);
     const [error, setError] = useState(null);
-    const [successMessage, setSuccessMessage] = useState(null); // New state for success message
+    const [successMessage, setSuccessMessage] = useState(null);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setError(null);
-        setSuccessMessage(null); // Reset success message on submit
+        setSuccessMessage(null);
 
         if (isRegistering && password !== confirmPassword) {
             setError('Passwords do not match');
@@ -23,30 +25,37 @@ function Login({ onLogin }) {
 
         try {
             const endpoint = isRegistering
-                ? 'http://localhost:5000/api/register' // Registration endpoint
-                : 'http://localhost:5000/api/login';   // Login endpoint
+                ? 'http://localhost:5000/api/register'
+                : 'http://localhost:5000/api/login';
 
-            const response = await axios.post(endpoint, { email, password });
-            const { token } = response.data;
+            // For login, name and role are not required, so only send email and password
 
+            const response = await axios.post(endpoint, { name, email, password, role });
+            const { token, userId } = response.data;
+
+            // Save token and userId to localStorage/sessionStorage if "remember me" is checked
             if (token) {
-                // Store token based on Remember Me checkbox
                 if (rememberMe) {
-                    localStorage.setItem('token', token); // Store token for "Remember Me"
+                    localStorage.setItem('token', token);
                 } else {
-                    sessionStorage.setItem('token', token); // Store token for session
+                    sessionStorage.setItem('token', token);
                 }
-                onLogin(token); // Pass token to parent for authentication
-                // Reset form fields
+
+                // Optionally save the userId in storage
+                if (userId) {
+                    localStorage.setItem('userId', userId); // If you need to use the userId
+                }
+
+                // Pass token to parent component (onLogin function)
+                onLogin(token);
                 resetForm();
             }
 
-            // Set success message on registration success
+            // Show success message for registration
             if (isRegistering) {
-                setSuccessMessage('Registration successful! You can now log in.'); // Set success message
+                setSuccessMessage('Registration successful! You can now log in.');
             }
         } catch (err) {
-            // Provide more specific error feedback
             if (err.response && err.response.data) {
                 setError(err.response.data.message || 'Authentication failed. Please check your credentials.');
             } else {
@@ -56,9 +65,11 @@ function Login({ onLogin }) {
     };
 
     const resetForm = () => {
+        setName('');
         setEmail('');
         setPassword('');
         setConfirmPassword('');
+        setRole('investor');
     };
 
     return (
@@ -67,7 +78,7 @@ function Login({ onLogin }) {
                 <div className="w-1/4 bg-black rounded-lg border-2 border-black/35 hover:shadow-black/50 hover:shadow-lg transition-shadow duration-300">
                     <div className="p-6">
                         <div className="flex items-center justify-center mb-4">
-                            <img 
+                            <img
                                 src={logo}
                                 alt="FundFlow Logo"
                                 className="w-[90px] h-[90px]"
@@ -84,9 +95,25 @@ function Login({ onLogin }) {
                         </p>
 
                         {error && <div className="mb-4 text-red-600">{error}</div>}
-                        {successMessage && <div className="mb-4 text-green-600">{successMessage}</div>} {/* Display success message */}
+                        {successMessage && <div className="mb-4 text-green-600">{successMessage}</div>}
 
                         <form onSubmit={handleSubmit}>
+                            {isRegistering && (
+                                <div className="font-Levnam font-medium mb-4">
+                                    <label htmlFor="name" className="block text-[#11a14a] text-sm font-bold mb-2">
+                                        Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        className="w-full px-3 py-2 bg-[#d9d6ba] border-[#d9d6ba] rounded-md focus:outline-none focus:ring-2 focus:ring-[#11a14a]"
+                                        required
+                                    />
+                                </div>
+                            )}
+
                             <div className="font-Levnam font-medium mb-4">
                                 <label htmlFor="email" className="block text-[#11a14a] text-sm font-bold mb-2">
                                     Email Address
@@ -131,6 +158,24 @@ function Login({ onLogin }) {
                                 </div>
                             )}
 
+                            {isRegistering && (
+                                <div className="font-Levnam font-medium mb-4">
+                                    <label htmlFor="role" className="block text-[#11a14a] text-sm font-bold mb-2">
+                                        Role
+                                    </label>
+                                    <select
+                                        id="role"
+                                        value={role}
+                                        onChange={(e) => setRole(e.target.value)}
+                                        className="w-full px-3 py-2 bg-[#d9d6ba] border-[#d9d6ba] rounded-md focus:outline-none focus:ring-2 focus:ring-[#11a14a]"
+                                        required
+                                    >
+                                        <option value="investor">Investor</option>
+                                        <option value="startup">Startup</option>
+                                    </select>
+                                </div>
+                            )}
+
                             <div className="mb-4 font-Levnam font-medium text-[#11a14a]">
                                 <label htmlFor="rememberMe" className="flex items-center">
                                     <input
@@ -158,19 +203,19 @@ function Login({ onLogin }) {
                                     Already have an account?{' '}
                                     <button
                                         onClick={() => setIsRegistering(false)}
-                                        className="text-[#11a14a] hover:underline"
+                                        className="text-[#d9d6ba] hover:underline"
                                     >
-                                        Login here
+                                        Login
                                     </button>
                                 </span>
                             ) : (
                                 <span>
-                                    No account?{' '}
+                                    Don't have an account?{' '}
                                     <button
                                         onClick={() => setIsRegistering(true)}
-                                        className="text-[#11a14a] hover:underline"
+                                        className="text-[#d9d6ba] hover:underline"
                                     >
-                                        Register here
+                                        Register
                                     </button>
                                 </span>
                             )}

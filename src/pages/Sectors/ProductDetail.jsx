@@ -70,8 +70,13 @@ const ProductDetails = () => {
 
       {/* Contact */}
       <section className="mt-8">
+
         <h2 className="text-2xl font-semibold mb-4 text-white">Contact</h2>
         <p className="text-gray-400">For more information, please reach out to our investment support team at <a href="mailto:support@investment.com" className="text-blue-500 hover:underline">support@investment.com</a>.</p>
+
+        <h2 className="text-2xl font-semibold mb-4">Contact</h2>
+        <p>For more information, please reach out to our investment support team at <a href="http://localhost:5173/pages/Message" className="text-blue-500 hover:underline">Chat with Us</a>.</p>
+
       </section>
     </div>
   );
