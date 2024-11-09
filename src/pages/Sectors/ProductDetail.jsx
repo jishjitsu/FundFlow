@@ -39,8 +39,8 @@ const ProductDetails = () => {
         &larr; Back to Sector
       </button>
       
-      <div className="grid md:grid-cols-2 gap-8">
-        <div className="space-y-6">
+      <div className="grid md:grid-cols-1 gap-8">
+        <div className="minh-screen flex flex-col items-center justify-center space-y-6">
           <h1 className="text-4xl font-bold text-white">{product.name}</h1>
           <p className="text-gray-300 text-lg">{product.description}</p>
           <p className="text-3xl font-semibold text-emerald-500">{product.price}</p>
