@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 const Navbar = ({ onLogout }) => {
   return (
-    <nav className="bg-[#11a14a] text-white p-4 flex justify-between items-center w-full">
+    <nav className="bg-[#9fd256bc] text-white p-4 flex justify-between items-center w-full">
       <h1 className="text-black text-2xl font-semibold">FundFlow</h1>
       <div className="flex space-x-4">
-        <Link to="/pages/sectors" className="text-black hover:underline">Invest</Link>
-        <Link to="/pages/Analytics" className="text-black hover:underline">Analytics</Link>
+      <Link to="/pages/analytics" className="text-black hover:underline">Dashboard</Link>
+        <Link to="/invest" className="text-black hover:underline">Invest</Link>
         <Link to="/pages/Message" className="text-black hover:underline">Message</Link>
         <Link to="./pages/Learn" className="text-black hover:underline">Learn</Link>
         <button 
@@ -21,6 +21,6 @@ const Navbar = ({ onLogout }) => {
       </div>
     </nav>
   );
-};
+};     
 
 export default Navbar;
