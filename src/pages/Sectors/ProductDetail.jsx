@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { TrendingUp, BarChart2, CheckCircle } from 'lucide-react';
 import sectorData from './sectorsData';
+import predictionsData from './predictions.json';
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -13,6 +15,11 @@ const ProductDetails = () => {
   if (!product) {
     return <div className="min-h-screen bg-gray-900 text-white p-8">Product not found</div>;
   }
+
+  // Find matching prediction data
+  const predictionInfo = predictionsData.find(p => 
+    p.company_name.toLowerCase() === product.name.toLowerCase()
+  );
 
   const historicalData = product.historicSales?.map(sale => ({
     month: sale.month,
@@ -33,7 +40,6 @@ const ProductDetails = () => {
       </button>
       
       <div className="grid md:grid-cols-2 gap-8">
-        
         <div className="space-y-6">
           <h1 className="text-4xl font-bold text-white">{product.name}</h1>
           <p className="text-gray-300 text-lg">{product.description}</p>
@@ -100,7 +106,86 @@ const ProductDetails = () => {
         )}
       </section>
 
-      {/* Product Overview */}
+      {/* Predictions Section */}
+      {predictionInfo && (
+        <section className="mt-12">
+          <h2 className="text-2xl font-semibold mb-6 text-white">Performance Metrics & Predictions</h2>
+          
+          {/* Success Score */}
+          <div className="bg-gray-800 p-6 rounded-xl mb-6">
+            <div className="flex items-center justify-between">
+              <h3 className="text-xl font-semibold text-white">Success Score</h3>
+              <div className="text-3xl font-bold text-emerald-500">
+                {predictionInfo.success_score.toFixed(1)}%
+              </div>
+            </div>
+          </div>
+
+          {/* Metrics Grid */}
+          <div className="grid md:grid-cols-3 gap-6 mb-6">
+            {/* Growth Card */}
+            <div className="bg-gray-800 p-6 rounded-xl">
+              <div className="flex items-center mb-4">
+                <TrendingUp className="w-6 h-6 text-emerald-500 mr-2" />
+                <h4 className="text-lg font-semibold">Growth Metrics</h4>
+              </div>
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Total Growth</span>
+                  <span className="text-emerald-500">
+                    {predictionInfo.metrics.total_growth_percent.toFixed(1)}%
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Monthly Growth</span>
+                  <span className="text-emerald-500">
+                    {predictionInfo.metrics.avg_monthly_growth_percent.toFixed(1)}%
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Latest Revenue Card */}
+            <div className="bg-gray-800 p-6 rounded-xl">
+              <div className="flex items-center mb-4">
+                <BarChart2 className="w-6 h-6 text-emerald-500 mr-2" />
+                <h4 className="text-lg font-semibold">Latest Revenue</h4>
+              </div>
+              <div className="text-2xl font-bold text-emerald-500">
+                ₹{predictionInfo.metrics.latest_revenue.toLocaleString()}
+              </div>
+            </div>
+
+            {/* Reliability Card */}
+            <div className="bg-gray-800 p-6 rounded-xl">
+              <div className="flex items-center mb-4">
+                <CheckCircle className="w-6 h-6 text-emerald-500 mr-2" />
+                <h4 className="text-lg font-semibold">Trend Reliability</h4>
+              </div>
+              <div className="text-2xl font-bold text-emerald-500">
+                {predictionInfo.metrics.trend_reliability.toFixed(1)}%
+              </div>
+            </div>
+          </div>
+
+          {/* Future Predictions */}
+          <div className="bg-gray-800 p-6 rounded-xl">
+            <h3 className="text-xl font-semibold mb-4">Revenue Predictions (Next 3 Months)</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {predictionInfo.metrics.predicted_next_3_months.map((prediction, index) => (
+                <div key={index} className="p-4 bg-gray-700 rounded-lg">
+                  <div className="text-gray-400 mb-2">Month {index + 1}</div>
+                  <div className="text-lg font-semibold text-emerald-500">
+                    ₹{prediction.toLocaleString()}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Rest of the sections remain unchanged */}
       <section className="mt-12">
         <h2 className="text-2xl font-semibold mb-4 text-white">Product Overview</h2>
         <p className="text-gray-300">
@@ -108,7 +193,6 @@ const ProductDetails = () => {
         </p>
       </section>
 
-      {/* Testimonials */}
       <section className="mt-12">
         <h2 className="text-2xl font-semibold mb-6 text-white">Testimonials</h2>
         <div className="grid md:grid-cols-2 gap-6">
@@ -127,7 +211,6 @@ const ProductDetails = () => {
         </div>
       </section>
 
-      {/* Contact */}
       <section className="mt-12">
         <h2 className="text-2xl font-semibold mb-4 text-white">Contact</h2>
         <p className="text-gray-300">
