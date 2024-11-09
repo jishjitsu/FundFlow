@@ -92,6 +92,7 @@
 // export default App;
 
 import React, { useState, useEffect } from 'react';
+import Chatbot from './Chatbot';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
@@ -203,6 +204,7 @@ function App() {
           <Route path="/pages/learn/funding/refer-startup" element={<ReferStartup />} />
           <Route path="/pages/learn/funding/success-stories" element={<SuccessStories />} />
         </Routes>
+        <Chatbot />
       </div>
     </Router>
   );
