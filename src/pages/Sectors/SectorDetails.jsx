@@ -253,11 +253,7 @@ const SectorDetails = () => {
             onClick={() => handleProductClick(product.id)}
           >
             <div style={cardContentStyle}>
-  <img 
-    src={product.image} 
-    alt={product.name} 
-    style={{ width: '100%', height: 'auto', borderRadius: '8px', marginTop: '10px' }}
-  />
+  
   <h5 style={{ ...titleStyle, fontSize: '1.5em', textAlign: 'center' }}>{product.name}</h5>  {/* Reduced font size */}
   <p style={ {...descriptionStyle, textAlign: 'center'}}>{product.description}</p>
 

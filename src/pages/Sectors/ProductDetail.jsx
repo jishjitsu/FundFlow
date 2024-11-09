@@ -36,11 +36,7 @@ const ProductDetails = () => {
       </button>
       
       <div className="grid md:grid-cols-2 gap-8">
-        <img 
-          src="/api/placeholder/600/400"
-          alt={product.name} 
-          className="w-full h-64 object-cover rounded-xl shadow-lg"
-        />
+        
         <div className="space-y-6">
           <h1 className="text-4xl font-bold text-white">{product.name}</h1>
           <p className="text-gray-300 text-lg">{product.description}</p>
