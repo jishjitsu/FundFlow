@@ -8,7 +8,7 @@ const Navbar = ({ onLogout }) => {
     <nav className="bg-[#9fd256bc] text-white p-4 flex justify-between items-center w-full">
       <h1 className="text-black text-2xl font-semibold">FundFlow</h1>
       <div className="flex space-x-4">
-        <Link to="/pages/sectors" className="text-black hover:underline">Invest</Link>
+        <Link to="/dashboard" className="text-black hover:underline">Invest</Link>
         <Link to="/pages/Analytics" className="text-black hover:underline">Analytics</Link>
         <Link to="/pages/Message" className="text-black hover:underline">Message</Link>
         <Link to="./pages/Learn" className="text-black hover:underline">Learn</Link>
