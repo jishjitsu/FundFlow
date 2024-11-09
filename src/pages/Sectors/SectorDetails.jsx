@@ -160,10 +160,11 @@ const SectorDetails = () => {
   const { sectorName } = useParams();
   const navigate = useNavigate();
   
+  // Find the sector based on the sectorName from URL params
   const sector = sectors.find(s => s.name.toLowerCase() === sectorName.toLowerCase());
 
   if (!sector) {
-    return <p>Sector not found</p>;
+    return <p className="text-white">Sector not found</p>;
   }
 
   const handleProductClick = (productId) => {
@@ -175,52 +176,130 @@ const SectorDetails = () => {
     navigate(`/sectors/${selectedSector.toLowerCase()}`);
   };
 
+  const containerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: '100vh',
+    minWidth: '100vw',
+    backgroundColor: '#000000',
+    padding: '20px',
+    fontFamily: '"Roboto", sans-serif',
+  };
+
+  const headerStyle = {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '20px',
+  };
+
+  const cardWrapperStyle = {
+    background: 'linear-gradient(49deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%)',
+    width: '380px',
+    height: '350px',
+    borderRadius: '12px',
+    position: 'relative',
+    flex: '0 0 auto',
+    cursor: 'pointer',
+  };
+
+  const cardContentStyle = {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: '40px',
+    backgroundColor: '#222222',
+    color: '#ffffff',
+    borderRadius: '12px',
+    transition: '0.2s ease',
+    display: 'flex',
+    flexDirection: 'column',
+  };
+
+  const titleStyle = {
+    fontSize: '2.5em',
+    fontWeight: 'bold',
+    marginBottom: '20px',
+    color: '#ffffff',
+  };
+
+  const descriptionStyle = {
+    fontSize: '1.1em',
+    lineHeight: '1.6',
+    color: '#ffffff',
+    opacity: '0.9',
+  };
+
+  const handleMouseOver = (e) => {
+    const card = e.currentTarget;
+    const content = card.children[0];
+    content.style.inset = '3px';
+    content.style.borderRadius = '10px';
+  };
+
+  const handleMouseOut = (e) => {
+    const card = e.currentTarget;
+    const content = card.children[0];
+    content.style.inset = '0';
+    content.style.borderRadius = '12px';
+  };
+
   return (
-    <div className="min-h-screen bg-white p-8">
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="text-4xl font-bold">{sector.name} Sector</h1>
+    <div style={containerStyle}>
+      {/* Header and Dropdown Section */}
+      <div style={headerStyle}>
+        <h1 style={titleStyle}>{sector.name} Sector</h1>
         <select 
           onChange={handleSectorChange}
           value={sector.name.toLowerCase()}
-          className="border border-gray-300 rounded p-2"
+          className="border border-gray-500 rounded p-2 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           {sectors.map((sec, index) => (
-            <option key={index} value={sec.name.toLowerCase()}>
+            <option key={index} value={sec.name.toLowerCase()} className="bg-gray-800">
               {sec.name}
             </option>
           ))}
         </select>
       </div>
 
-      <p className="text-lg mb-6">{sector.description}</p>
+      {/* Sector Description */}
+      <p style={descriptionStyle}>{sector.description}</p>
 
-      <h2 className="text-2xl font-semibold mb-4">Products in {sector.name}</h2>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <h2 style={titleStyle}>Products in {sector.name}</h2>
+
+      {/* Cards Section */}
+      <div className="flex flex-wrap justify-center gap-6">
         {sector.products.map((product) => (
           <div 
             key={product.id} 
-            className="p-4 border border-gray-300 rounded-lg hover:shadow-lg cursor-pointer"
+            style={cardWrapperStyle}
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}
             onClick={() => handleProductClick(product.id)}
           >
-            <img src={product.image} alt={product.name} className="w-full h-40 object-cover rounded mb-4" />
-            <h3 className="text-xl font-bold">{product.name}</h3>
-            <p className="text-gray-600 mb-2">{product.description}</p>
-            <p className="text-lg font-semibold">{product.price}</p>
+            <div style={cardContentStyle}>
+  <img 
+    src={product.image} 
+    alt={product.name} 
+    style={{ width: '100%', height: 'auto', borderRadius: '8px', marginTop: '10px' }}
+  />
+  <h5 style={{ ...titleStyle, fontSize: '1.5em', textAlign: 'center' }}>{product.name}</h5>  {/* Reduced font size */}
+  <p style={ {...descriptionStyle, textAlign: 'center'}}>{product.description}</p>
 
-            <div className="mt-4 text-sm text-gray-500">
-              <div className="flex justify-between">
-                <span>Funds Generated:</span>
-                <span>{product.fundsGenerated}</span>
-              </div>
-              <div className="flex justify-between mt-2">
-                <span>Minimum Investment:</span>
-                <span>{product.minimumInvestment}</span>
-              </div>
-              <div className="flex justify-between mt-2">
-                <span>Days Left:</span>
-                <span>{product.daysLeft} days</span>
-              </div>
-            </div>
+  <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+    <p style={{ ...descriptionStyle, fontSize: '0.9em' }}><strong>Funds Generated:</strong> {product.fundsGenerated}</p>
+    <p style={{ ...descriptionStyle, fontSize: '0.9em' }}><strong>Minimum Investment:</strong> {product.minimumInvestment}</p>
+    <p style={{ ...descriptionStyle, fontSize: '0.9em' }}><strong>Days Left:</strong> {product.daysLeft} days</p>
+  </div>
+</div>
+
+
+
           </div>
         ))}
       </div>

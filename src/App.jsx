@@ -70,11 +70,11 @@ function App() {
 
   return (
     <Router>
-      <div className="bg-white app-content min-h-screen flex flex-col items-center">
+      <div className="bg-black app-content min-h-screen flex flex-col items-center">
         {isAuthenticated && <Navbar onLogout={handleLogout} />}
         
         <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/" element={<Navigate to="/pages/analytics" replace />} />
           <Route path="/invest" element={<Invest />} />
           <Route path="/sectors/:sectorName" element={<SectorDetails />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
