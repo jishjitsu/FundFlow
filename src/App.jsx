@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import Invest from './pages/Invest';
 import SectorDetails from './pages/Sectors/SectorDetails'; // New component for all sector pages
 import ProductDetails from './pages/Sectors/ProductDetail';
 import Analytics from './pages/Analytics';
@@ -74,7 +74,7 @@ function App() {
         
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/invest" element={<Invest />} />
           <Route path="/sectors/:sectorName" element={<SectorDetails />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
           <Route path="/pages/analytics" element={<Analytics />} />
