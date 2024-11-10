@@ -92,10 +92,11 @@ const Dashboard = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 rounded-xl transform transition-all duration-200 group-hover:scale-[0.99]" />
             <div className="relative bg-gray-900 p-6 rounded-xl transform transition-all duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">
-              <div className="absolute top-4 right-4 text-sm font-bold">
-                {product.daysLeft} DAYS LEFT
+              <div className="absolute mb-4 right-4 text-sm font-bold">
+                <h3>Equity</h3>
+                {product.daysLeft} %
               </div>
-              <h3 className="text-xl font-bold mb-2">{product.name}</h3>
+              <h3 className="text-xl font-bold">{product.name}</h3>
               <p className="text-gray-400 mb-4">{product.description}</p>
               <div className="flex justify-between items-center text-sm">
                 <div>
