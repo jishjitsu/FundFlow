@@ -9,7 +9,7 @@ const sectorData = [
           description: "Advanced AI research and development platform.", 
           price: "₹199.99", 
           image: "/images/ai-systems.jpg", 
-          fundsGenerated: "₹19,000", 
+          fundsGenerated: "₹5,000", 
           minimumInvestment: "₹20,000", 
           daysLeft: 15,
           historicSales: [
@@ -45,7 +45,7 @@ const sectorData = [
           description: "Commercial quantum computing solutions.", 
           price: "₹299.99", 
           image: "/images/quantum-computing.jpg", 
-          fundsGenerated: "₹29,000", 
+          fundsGenerated: "₹10,000", 
           minimumInvestment: "₹50,000", 
           daysLeft: 30,
           historicSales: [
@@ -81,7 +81,7 @@ const sectorData = [
           description: "Blockchain scaling solutions.", 
           price: "₹249.99", 
           image: "/images/blockchain-tech.jpg", 
-          fundsGenerated: "₹13,498", 
+          fundsGenerated: "₹7,000", 
           minimumInvestment: "₹25,000", 
           daysLeft: 10,
           historicSales: [
@@ -113,12 +113,12 @@ const sectorData = [
         },
       
     
-        { id: 4, name: "Sidewalk Labs", description: "Urban innovation organization.", price: "₹99.99", image: "/images/smart-cities.jpg", fundsGenerated: "₹300,000", minimumInvestment: "₹10,000", daysLeft: 40 },
-        { id: 5, name: "Oculus Quest", description: "VR gaming and metaverse platform.", price: "₹149.99", image: "/images/vr-gaming.jpg", fundsGenerated: "₹200,000", minimumInvestment: "₹15,000", daysLeft: 25 },
-        { id: 6, name: "Fastly Edge", description: "Edge computing infrastructure.", price: "₹299.99", image: "/images/edge-computing.jpg", fundsGenerated: "₹850,000", minimumInvestment: "₹20,000", daysLeft: 35 },
-        { id: 7, name: "Qualcomm Nexus", description: "5G network solutions.", price: "₹199.99", image: "/images/5g-networks.jpg", fundsGenerated: "₹600,000", minimumInvestment: "₹30,000", daysLeft: 20 },
-        { id: 8, name: "Waymo Drive", description: "Autonomous driving technology.", price: "₹249.99", image: "/images/autonomous-vehicles.jpg", fundsGenerated: "₹1,500,000", minimumInvestment: "₹40,000", daysLeft: 60 },
-        { id: 9, name: "Particle IoT", description: "IoT development platform.", price: "₹120.00", image: "/images/iot-devices.jpg", fundsGenerated: "₹450,000", minimumInvestment: "₹15,000", daysLeft: 18 }
+        { id: 4, name: "Sidewalk Labs", description: "Urban innovation organization.", price: "₹99.99", image: "/images/smart-cities.jpg", fundsGenerated: "₹30,000", minimumInvestment: "₹10,000", daysLeft: 40 },
+        { id: 5, name: "Oculus Quest", description: "VR gaming and metaverse platform.", price: "₹149.99", image: "/images/vr-gaming.jpg", fundsGenerated: "₹20,000", minimumInvestment: "₹15,000", daysLeft: 25 },
+        { id: 6, name: "Fastly Edge", description: "Edge computing infrastructure.", price: "₹299.99", image: "/images/edge-computing.jpg", fundsGenerated: "₹80,000", minimumInvestment: "₹20,000", daysLeft: 35 },
+        { id: 7, name: "Qualcomm Nexus", description: "5G network solutions.", price: "₹199.99", image: "/images/5g-networks.jpg", fundsGenerated: "₹60,000", minimumInvestment: "₹30,000", daysLeft: 20 },
+        { id: 8, name: "Waymo Drive", description: "Autonomous driving technology.", price: "₹249.99", image: "/images/autonomous-vehicles.jpg", fundsGenerated: "₹1,500,000", minimumInvestment: "₹4,000", daysLeft: 60 },
+        { id: 9, name: "Particle IoT", description: "IoT development platform.", price: "₹120.00", image: "/images/iot-devices.jpg", fundsGenerated: "₹40,000", minimumInvestment: "₹15,000", daysLeft: 18 }
       ]
     },
     { 
@@ -131,8 +131,8 @@ const sectorData = [
           description: "Robotic surgery systems.", 
           price: "₹299.99", 
           image: "/images/medical-devices.jpg", 
-          fundsGenerated: "₹38,800", 
-          minimumInvestment: "₹65,000", 
+          fundsGenerated: "₹800,000", 
+          minimumInvestment: "₹25,000", 
           daysLeft: 20,
           historicSales: [
             { month: "Nov 2022", revenue: "₹120,000" },
@@ -167,8 +167,8 @@ const sectorData = [
           description: "mRNA therapeutics.", 
           price: "₹500.00", 
           image: "/images/pharmaceuticals.jpg", 
-          fundsGenerated: "₹34,000", 
-          minimumInvestment: "₹3,90,000", 
+          fundsGenerated: "₹1,200,000", 
+          minimumInvestment: "₹30,000", 
           daysLeft: 45,
           historicSales: [
             { month: "Nov 2022", revenue: "₹180,000" },
@@ -203,7 +203,7 @@ const sectorData = [
           description: "Health tracking platform.", 
           price: "₹50.00", 
           image: "/images/health-apps.jpg", 
-          fundsGenerated: "₹1,750", 
+          fundsGenerated: "₹100,000", 
           minimumInvestment: "₹5,000", 
           daysLeft: 10,
           historicSales: [

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { TrendingUp, BarChart2, CheckCircle } from 'lucide-react';
@@ -9,14 +9,28 @@ const ProductDetails = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
   
-  const product = sectorData.flatMap(sector => sector.products)
-    .find(p => p.id === parseInt(productId));
+  const [investmentAmount, setInvestmentAmount] = useState('');
+  const [currentFunds, setCurrentFunds] = useState(0); // Initialize with 0 instead of null
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [product, setProduct] = useState(null);
+  
+  // Use useEffect to fetch and set initial data
+  useEffect(() => {
+    const foundProduct = sectorData.flatMap(sector => sector.products)
+      .find(p => p.id === parseInt(productId));
+    
+    if (foundProduct) {
+      setProduct(foundProduct);
+      const initialFunds = parseInt(foundProduct.fundsGenerated.replace(/[₹,]/g, '')) || 0;
+      setCurrentFunds(initialFunds);
+    }
+  }, [productId]);
 
+  // If product is not loaded yet, show loading state
   if (!product) {
-    return <div className="min-h-screen bg-gray-900 text-white p-8">Product not found</div>;
+    return <div className="min-h-screen bg-gray-900 text-white p-8">Loading...</div>;
   }
 
-  // Find matching prediction data
   const predictionInfo = predictionsData.find(p => 
     p.company_name.toLowerCase() === product.name.toLowerCase()
   );
@@ -26,9 +40,23 @@ const ProductDetails = () => {
     sales: parseInt(sale.revenue.replace(/[₹,]/g, ''))
   }));
 
-  const fundsGenerated = parseInt(product.fundsGenerated.replace(/[₹,]/g, ''));
-  const minimumInvestment = parseInt(product.minimumInvestment.replace(/[₹,]/g, ''));
-  const progressPercentage = Math.min((fundsGenerated / minimumInvestment) * 100, 100);
+  const minimumInvestment = parseInt(product.minimumInvestment.replace(/[₹,]/g, '')) || 0;
+  const progressPercentage = Math.min((currentFunds / minimumInvestment) * 100, 100);
+
+  const handleInvestmentChange = (e) => {
+    const value = e.target.value.replace(/[^0-9]/g, '');
+    setInvestmentAmount(value);
+  };
+
+  const handleBuy = () => {
+    const amount = parseInt(investmentAmount);
+    if (amount && amount > 0) {
+      setCurrentFunds(prev => prev + amount);
+      setInvestmentAmount('');
+      setShowSuccess(true);
+      setTimeout(() => setShowSuccess(false), 3000);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-black text-white p-8">
@@ -40,14 +68,45 @@ const ProductDetails = () => {
       </button>
       
       <div className="grid md:grid-cols-1 gap-8">
-        <div className="minh-screen flex flex-col items-center justify-center space-y-6">
+        <div className="min-h-screen flex flex-col items-center justify-center space-y-6">
           <h1 className="text-4xl font-bold text-white">{product.name}</h1>
           <p className="text-gray-300 text-lg">{product.description}</p>
           <p className="text-3xl font-semibold text-emerald-500">{product.price}</p>
           
-          <div className="space-y-2">
+          {/* Investment Input and Buy Button */}
+          <div className="w-full max-w-md space-y-4">
+            <div className="flex gap-4">
+              <input
+                type="text"
+                value={investmentAmount}
+                onChange={handleInvestmentChange}
+                placeholder="Enter investment amount"
+                className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+              />
+              <button
+                onClick={handleBuy}
+                className={`px-6 py-2 rounded-lg ${
+                  !investmentAmount || parseInt(investmentAmount) <= 0
+                    ? 'bg-gray-600 cursor-not-allowed'
+                    : 'bg-emerald-500 hover:bg-emerald-600'
+                } text-white transition-colors`}
+                disabled={!investmentAmount || parseInt(investmentAmount) <= 0}
+              >
+                Buy
+              </button>
+            </div>
+            
+            {showSuccess && (
+              <div className="bg-emerald-500/20 border border-emerald-500 text-emerald-500 p-4 rounded-lg">
+                Investment successful! Thank you for your contribution.
+              </div>
+            )}
+          </div>
+          
+          {/* Progress Bar */}
+          <div className="space-y-2 w-full max-w-md">
             <div className="flex justify-between text-sm text-gray-300">
-              <span>Funds Generated: {product.fundsGenerated}</span>
+              <span>Funds Generated: ₹{currentFunds.toLocaleString()}</span>
               <span>Goal: {product.minimumInvestment}</span>
             </div>
             <div className="w-full bg-gray-700 rounded-full h-4">
@@ -112,7 +171,7 @@ const ProductDetails = () => {
           <h2 className="text-2xl font-semibold mb-6 text-white">Performance Metrics & Predictions</h2>
           
           {/* Success Score */}
-          <div className="bg-black p-6 rounded-xl mb-6">
+          <div className="bg-black p-6 rounded-xl mb-6 border border-gray-800">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-semibold text-white">Success Score</h3>
               <div className="text-3xl font-bold text-emerald-500">
@@ -185,7 +244,7 @@ const ProductDetails = () => {
         </section>
       )}
 
-      {/* Rest of the sections remain unchanged */}
+      {/* Product Overview */}
       <section className="mt-12">
         <h2 className="text-2xl font-semibold mb-4 text-white">Product Overview</h2>
         <p className="text-gray-300">
@@ -193,6 +252,7 @@ const ProductDetails = () => {
         </p>
       </section>
 
+      {/* Testimonials */}
       <section className="mt-12">
         <h2 className="text-2xl font-semibold mb-6 text-white">Testimonials</h2>
         <div className="grid md:grid-cols-2 gap-6">
@@ -211,6 +271,7 @@ const ProductDetails = () => {
         </div>
       </section>
 
+      {/* Contact */}
       <section className="mt-12">
         <h2 className="text-2xl font-semibold mb-4 text-white">Contact</h2>
         <p className="text-gray-300">
