@@ -34,11 +34,16 @@ body {
 /* Add this to your global CSS file */
 /* Text Gradient Effect for FundFlow */
 .text-gradient {
-    background: linear-gradient(49deg, #2d4de0 0%, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-  
+  background: linear-gradient(49deg, #2d4de0 0%, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%);
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: background 0.3s ease-in-out; /* Smooth transition */
+}
+
+.text-gradient:hover {
+  background: linear-gradient(49deg, #fc6277 0%, #2d4de0 30%, #9f71f0 58%, #f8ef6f 95%); /* Reverse or change colors on hover */
+}
+
   /* General Button and Link Styles */
   .navbar-link,
   .navbar-button {

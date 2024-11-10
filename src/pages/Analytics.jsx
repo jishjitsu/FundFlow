@@ -15,41 +15,41 @@ const InvestmentDashboard = () => {
     {
       company: 'DeepMind Aurora',
       sector: 'Technology',
-      initialInvestment: 100000,
-      currentValue: 155000,
-      growth: 55000,
+      initialInvestment: 10000,
+      currentValue: 15500,
+      growth: 5500,
       growthPercentage: 55
     },
     {
       company: 'Waymo Drive',
       sector: 'Technology',
-      initialInvestment: 150000,
-      currentValue: 200000,
-      growth: 50000,
-      growthPercentage: 33.33
+      initialInvestment: 1000,
+      currentValue: 2000,
+      growth: 1000,
+      growthPercentage: 50
     },
     {
       company: 'Intuitive Surgical',
       sector: 'Healthcare',
-      initialInvestment: 120000,
-      currentValue: 170000,
-      growth: 50000,
-      growthPercentage: 41.67
+      initialInvestment: 1275,
+      currentValue: 900,
+      growth: -375,
+      growthPercentage: -30
     },
     {
       company: 'Teladoc Health',
       sector: 'Healthcare',
-      initialInvestment: 90000,
-      currentValue: 72000,
-      growth: -18000,
+      initialInvestment: 9000,
+      currentValue: 7200,
+      growth: -1800,
       growthPercentage: -20
     },
     {
       company: 'Sundance Lab',
       sector: 'Film',
-      initialInvestment: 80000,
-      currentValue: 65000,
-      growth: -15000,
+      initialInvestment: 8000,
+      currentValue: 6500,
+      growth: -1500,
       growthPercentage: -18.75
     }
   ];

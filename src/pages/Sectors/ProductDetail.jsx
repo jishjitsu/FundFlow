@@ -31,7 +31,7 @@ const ProductDetails = () => {
   const progressPercentage = Math.min((fundsGenerated / minimumInvestment) * 100, 100);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8">
+    <div className="min-h-screen bg-black text-white p-8">
       <button 
         onClick={() => navigate(-1)} 
         className="mb-4 text-emerald-500 hover:text-emerald-400 transition-colors"
@@ -112,7 +112,7 @@ const ProductDetails = () => {
           <h2 className="text-2xl font-semibold mb-6 text-white">Performance Metrics & Predictions</h2>
           
           {/* Success Score */}
-          <div className="bg-gray-800 p-6 rounded-xl mb-6">
+          <div className="bg-black p-6 rounded-xl mb-6">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-semibold text-white">Success Score</h3>
               <div className="text-3xl font-bold text-emerald-500">

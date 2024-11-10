@@ -8,9 +8,9 @@ const sectors = [
       name: "Technology", 
       description: "Investment in tech startups and projects",
       products: [
-        { id: 1, name: "DeepMind Aurora", description: "Advanced AI research and development platform.", price: "₹199.99", image: "/images/ai-systems.jpg", fundsGenerated: "₹500,000", minimumInvestment: "₹20,000", daysLeft: 15 },
-        { id: 2, name: "IonQ Systems", description: "Commercial quantum computing solutions.", price: "₹299.99", image: "/images/quantum-computing.jpg", fundsGenerated: "₹1,000,000", minimumInvestment: "₹50,000", daysLeft: 30 },
-        { id: 3, name: "Polygon Labs", description: "Blockchain scaling solutions.", price: "₹249.99", image: "/images/blockchain-tech.jpg", fundsGenerated: "₹750,000", minimumInvestment: "₹25,000", daysLeft: 10 },
+        { id: 1, name: "DeepMind Aurora", description: "Advanced AI research and development platform.", price: "₹199.99", image: "/images/ai-systems.jpg", fundsGenerated: "₹19,000", minimumInvestment: "₹20,000", daysLeft: 15 },
+        { id: 2, name: "IonQ Systems", description: "Commercial quantum computing solutions.", price: "₹299.99", image: "/images/quantum-computing.jpg", fundsGenerated: "₹29,000", minimumInvestment: "₹50,000", daysLeft: 30 },
+        { id: 3, name: "Polygon Labs", description: "Blockchain scaling solutions.", price: "₹249.99", image: "/images/blockchain-tech.jpg", fundsGenerated: "₹13,498", minimumInvestment: "₹25,000", daysLeft: 10 },
         { id: 4, name: "Sidewalk Labs", description: "Urban innovation organization.", price: "₹99.99", image: "/images/smart-cities.jpg", fundsGenerated: "₹300,000", minimumInvestment: "₹10,000", daysLeft: 40 },
         { id: 5, name: "Oculus Quest", description: "VR gaming and metaverse platform.", price: "₹149.99", image: "/images/vr-gaming.jpg", fundsGenerated: "₹200,000", minimumInvestment: "₹15,000", daysLeft: 25 },
         { id: 6, name: "Fastly Edge", description: "Edge computing infrastructure.", price: "₹299.99", image: "/images/edge-computing.jpg", fundsGenerated: "₹850,000", minimumInvestment: "₹20,000", daysLeft: 35 },
@@ -23,9 +23,9 @@ const sectors = [
       name: "Healthcare", 
       description: "Opportunities in healthcare innovation",
       products: [
-        { id: 10, name: "Intuitive Surgical", description: "Robotic surgery systems.", price: "₹299.99", image: "/images/medical-devices.jpg", fundsGenerated: "₹800,000", minimumInvestment: "₹25,000", daysLeft: 20 },
-        { id: 11, name: "Moderna Tech", description: "mRNA therapeutics.", price: "₹500.00", image: "/images/pharmaceuticals.jpg", fundsGenerated: "₹1,200,000", minimumInvestment: "₹30,000", daysLeft: 45 },
-        { id: 12, name: "Fitbit Care", description: "Health tracking platform.", price: "₹50.00", image: "/images/health-apps.jpg", fundsGenerated: "₹100,000", minimumInvestment: "₹5,000", daysLeft: 10 },
+        { id: 10, name: "Intuitive Surgical", description: "Robotic surgery systems.", price: "₹299.99", image: "/images/medical-devices.jpg", fundsGenerated: "₹38,800", minimumInvestment: "₹65,000", daysLeft: 20 },
+        { id: 11, name: "Moderna Tech", description: "mRNA therapeutics.", price: "₹500.00", image: "/images/pharmaceuticals.jpg", fundsGenerated: "₹34,000", minimumInvestment: "₹3,90,000", daysLeft: 45 },
+        { id: 12, name: "Fitbit Care", description: "Health tracking platform.", price: "₹50.00", image: "/images/health-apps.jpg", fundsGenerated: "₹1,750", minimumInvestment: "₹5,000", daysLeft: 10 },
         { id: 13, name: "Teladoc Health", description: "Virtual healthcare services.", price: "₹250.00", image: "/images/telemedicine.jpg", fundsGenerated: "₹400,000", minimumInvestment: "₹20,000", daysLeft: 22 },
         { id: 14, name: "Apple Health+", description: "Advanced health wearables.", price: "₹180.00", image: "/images/wearable-tech.jpg", fundsGenerated: "₹700,000", minimumInvestment: "₹15,000", daysLeft: 28 },
         { id: 15, name: "Illumina Genesis", description: "Genomic sequencing solutions.", price: "₹600.00", image: "/images/biotechnology.jpg", fundsGenerated: "₹1,500,000", minimumInvestment: "₹50,000", daysLeft: 40 },
@@ -253,13 +253,13 @@ const SectorDetails = () => {
           >
             <div style={cardContentStyle}>
   
-  <h5 style={{ ...titleStyle, fontSize: '1.5em', textAlign: 'center' }}>{product.name}</h5>  {/* Reduced font size */}
-  <p style={ {...descriptionStyle, textAlign: 'center'}}>{product.description}</p>
+  <h5 style={{ ...titleStyle, fontSize: '1.5em', textAlign: 'center', marginTop: '50px' }}>{product.name}</h5>  {/* Reduced font size */}
+  <p style={ {...descriptionStyle, textAlign: 'center',marginTop:'30px'}}>{product.description}</p>
 
-  <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+  <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
     <p style={{ ...descriptionStyle, fontSize: '0.9em' }}><strong>Funds Generated:</strong> {product.fundsGenerated}</p>
     <p style={{ ...descriptionStyle, fontSize: '0.9em' }}><strong>Minimum Investment:</strong> {product.minimumInvestment}</p>
-    <p style={{ ...descriptionStyle, fontSize: '0.9em' }}><strong>Days Left:</strong> {product.daysLeft} days</p>
+    <p style={{ ...descriptionStyle, fontSize: '0.9em' }}><strong>Equity:</strong> {product.daysLeft} %</p>
   </div>
 </div>
           </div>

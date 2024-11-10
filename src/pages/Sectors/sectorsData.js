@@ -9,7 +9,7 @@ const sectorData = [
           description: "Advanced AI research and development platform.", 
           price: "₹199.99", 
           image: "/images/ai-systems.jpg", 
-          fundsGenerated: "₹500,000", 
+          fundsGenerated: "₹19,000", 
           minimumInvestment: "₹20,000", 
           daysLeft: 15,
           historicSales: [
@@ -45,7 +45,7 @@ const sectorData = [
           description: "Commercial quantum computing solutions.", 
           price: "₹299.99", 
           image: "/images/quantum-computing.jpg", 
-          fundsGenerated: "₹1,000,000", 
+          fundsGenerated: "₹29,000", 
           minimumInvestment: "₹50,000", 
           daysLeft: 30,
           historicSales: [
@@ -81,7 +81,7 @@ const sectorData = [
           description: "Blockchain scaling solutions.", 
           price: "₹249.99", 
           image: "/images/blockchain-tech.jpg", 
-          fundsGenerated: "₹750,000", 
+          fundsGenerated: "₹13,498", 
           minimumInvestment: "₹25,000", 
           daysLeft: 10,
           historicSales: [
@@ -131,8 +131,8 @@ const sectorData = [
           description: "Robotic surgery systems.", 
           price: "₹299.99", 
           image: "/images/medical-devices.jpg", 
-          fundsGenerated: "₹800,000", 
-          minimumInvestment: "₹25,000", 
+          fundsGenerated: "₹38,800", 
+          minimumInvestment: "₹65,000", 
           daysLeft: 20,
           historicSales: [
             { month: "Nov 2022", revenue: "₹120,000" },
@@ -167,8 +167,8 @@ const sectorData = [
           description: "mRNA therapeutics.", 
           price: "₹500.00", 
           image: "/images/pharmaceuticals.jpg", 
-          fundsGenerated: "₹1,200,000", 
-          minimumInvestment: "₹30,000", 
+          fundsGenerated: "₹34,000", 
+          minimumInvestment: "₹3,90,000", 
           daysLeft: 45,
           historicSales: [
             { month: "Nov 2022", revenue: "₹180,000" },
@@ -203,7 +203,7 @@ const sectorData = [
           description: "Health tracking platform.", 
           price: "₹50.00", 
           image: "/images/health-apps.jpg", 
-          fundsGenerated: "₹100,000", 
+          fundsGenerated: "₹1,750", 
           minimumInvestment: "₹5,000", 
           daysLeft: 10,
           historicSales: [
