@@ -48,15 +48,20 @@ const ProductDetails = () => {
     setInvestmentAmount(value);
   };
 
-  const handleBuy = () => {
-    const amount = parseInt(investmentAmount);
-    if (amount && amount > 0) {
-      setCurrentFunds(prev => prev + amount);
-      setInvestmentAmount('');
-      setShowSuccess(true);
-      setTimeout(() => setShowSuccess(false), 3000);
-    }
-  };
+const handleBuy = () => {
+  const amount = parseInt(investmentAmount);
+  const productPrice = parseInt(product.price.replace(/[₹,]/g, '')) || 0; // Parse product price
+  
+  if (amount && amount >= productPrice) { // Check if amount meets or exceeds product price
+    setCurrentFunds(prev => prev + amount);
+    setInvestmentAmount('');
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 3000);
+  } else {
+    alert(`Investment amount should be at least ₹${productPrice.toLocaleString()}`);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-black text-white p-8">

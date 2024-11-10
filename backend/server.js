@@ -45,7 +45,25 @@ const userSchema = new mongoose.Schema({
   sector: { type: String, required: function() { return this.role === 'company'; }},
   location: { type: String, required: function() { return this.role === 'company'; }},
 });
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+app.post('/api/chat', async (req, res) => {
+  try {
+    const { message } = req.body;
+    
+    // Initialize the model
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
+    // Generate content
+    const result = await model.generateContent(message);
+    const response = await result.response;
+    const text = await response.text();  // Make sure to await the text() function if it's a promise.
+
+    res.json({ reply: text });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'An error occurred while processing your request.' });
+  }
+});
 const User = mongoose.model('User', userSchema);
 
 // Register Route
