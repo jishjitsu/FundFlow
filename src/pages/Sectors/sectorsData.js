@@ -131,7 +131,7 @@ const sectorData = [
           description: "Robotic surgery systems.", 
           price: "₹299.99", 
           image: "/images/medical-devices.jpg", 
-          fundsGenerated: "₹800,000", 
+          fundsGenerated: "₹8,000", 
           minimumInvestment: "₹25,000", 
           daysLeft: 20,
           historicSales: [
@@ -167,7 +167,7 @@ const sectorData = [
           description: "mRNA therapeutics.", 
           price: "₹500.00", 
           image: "/images/pharmaceuticals.jpg", 
-          fundsGenerated: "₹1,200,000", 
+          fundsGenerated: "₹10,000", 
           minimumInvestment: "₹30,000", 
           daysLeft: 45,
           historicSales: [

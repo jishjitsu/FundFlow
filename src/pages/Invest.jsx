@@ -11,63 +11,63 @@ const Dashboard = () => {
       name: "Technology",
       description: "Investment in tech startups and projects",
       products: [
-        { id: 1, name: "AI Systems", description: "Cutting-edge AI technologies.", price: "₹199.99", fundsGenerated: "₹500,000", minimumInvestment: "₹20,000", daysLeft: 15 },
-        { id: 2, name: "Quantum Computing", description: "Next-gen quantum computing.", price: "₹299.99", fundsGenerated: "₹1,000,000", minimumInvestment: "₹50,000", daysLeft: 30 },
-        { id: 3, name: "Blockchain Tech", description: "Blockchain innovations.", price: "₹249.99", fundsGenerated: "₹750,000", minimumInvestment: "₹25,000", daysLeft: 10 }
+        { id: 1, name: "DeepMind Aurora", description: "Cutting-edge AI technologies.", price: "₹199.99", fundsGenerated: "₹5,000", minimumInvestment: "₹20,000", daysLeft: 15 },
+        { id: 2, name: "IonQ Systems", description: "Commercial quantum computing solutions.", price: "₹299.99", fundsGenerated: "₹10,000", minimumInvestment: "₹50,000", daysLeft: 30 },
+        { id: 3, name: "Polygon Labs", description: "Blockchain innovations.", price: "₹249.99", fundsGenerated: "₹7,000", minimumInvestment: "₹25,000", daysLeft: 10 }
       ]
     },
     {
       name: "Healthcare",
       description: "Opportunities in healthcare innovation",
       products: [
-        { id: 10, name: "Medical Devices", description: "Innovative medical devices.", price: "₹299.99", fundsGenerated: "₹800,000", minimumInvestment: "₹25,000", daysLeft: 20 },
-        { id: 11, name: "Pharmaceuticals", description: "Pharmaceutical advancements.", price: "₹500.00", fundsGenerated: "₹1,200,000", minimumInvestment: "₹30,000", daysLeft: 45 },
-        { id: 12, name: "Health Apps", description: "Apps for health monitoring.", price: "₹50.00", fundsGenerated: "₹100,000", minimumInvestment: "₹5,000", daysLeft: 10 }
+        { id: 10, name: "Intuitive Surgical", description: "Innovative medical devices.", price: "₹299.99", fundsGenerated: "₹8,000", minimumInvestment: "₹25,000", daysLeft: 20 },
+        { id: 11, name: "Moderna Tech", description: "Pharmaceutical advancements.", price: "₹500.00", fundsGenerated: "₹10,000", minimumInvestment: "₹30,000", daysLeft: 45 },
+        { id: 12, name: "Fitbit Care", description: "Apps for health monitoring.", price: "₹150.00", fundsGenerated: "₹90,000", minimumInvestment: "₹1,50,000", daysLeft: 10 }
       ]
     },
     {
       name: "Games",
       description: "Invest in stunning concepts",
       products: [
-        { id: 19, name: "Mobile Games", description: "Trending mobile games.", price: "₹49.99", fundsGenerated: "₹300,000", minimumInvestment: "₹10,000", daysLeft: 20 },
-        { id: 20, name: "PC Games", description: "High-quality PC games.", price: "₹69.99", fundsGenerated: "₹500,000", minimumInvestment: "₹15,000", daysLeft: 35 },
-        { id: 21, name: "VR Games", description: "Immersive VR experiences.", price: "₹99.99", fundsGenerated: "₹400,000", minimumInvestment: "₹20,000", daysLeft: 15 }
+        { id: 19, name: "Supercell Next", description: "Trending mobile games.", price: "₹49.99", fundsGenerated: "₹3,000", minimumInvestment: "₹10,500", daysLeft: 20 },
+        { id: 20, name: "Steam Deck", description: "High-quality PC games.", price: "₹69.99", fundsGenerated: "₹5,000", minimumInvestment: "₹15,000", daysLeft: 35 },
+        { id: 21, name: "Meta Quest Pro", description: "Immersive VR experiences.", price: "₹99.99", fundsGenerated: "₹4,000", minimumInvestment: "₹20,000", daysLeft: 15 }
       ]
     },
     {
       name: "Film",
       description: "Invest in innovative film productions",
       products: [
-        { id: 28, name: "Documentary Films", description: "Engaging documentaries.", price: "₹75.00", fundsGenerated: "₹200,000", minimumInvestment: "₹8,000", daysLeft: 15 },
-        { id: 29, name: "Short Films", description: "Creative short films.", price: "₹40.00", fundsGenerated: "₹120,000", minimumInvestment: "₹5,000", daysLeft: 10 },
-        { id: 30, name: "Feature Films", description: "High-budget features.", price: "₹500.00", fundsGenerated: "₹1,000,000", minimumInvestment: "₹50,000", daysLeft: 60 }
+        { id: 28, name: "Netflix originals", description: "Engaging documentaries.", price: "₹75.00", fundsGenerated: "₹2,000", minimumInvestment: "₹8,000", daysLeft: 15 },
+        { id: 29, name: "Vimeo Select", description: "Creative short films.", price: "₹40.00", fundsGenerated: "₹100", minimumInvestment: "₹5,000", daysLeft: 10 },
+        { id: 30, name: "A24 Films", description: "High-budget features.", price: "₹500.00", fundsGenerated: "₹1,000", minimumInvestment: "₹50,000", daysLeft: 60 }
       ]
     },
     {
       name: "Clothing",
       description: "Invest in sustainable and innovative clothing brands",
       products: [
-        { id: 37, name: "Organic Cotton Apparel", description: "Eco-friendly cotton clothing.", price: "₹40.00", fundsGenerated: "₹250,000", minimumInvestment: "₹10,000", daysLeft: 20 },
-        { id: 38, name: "Recycled Fabric Activewear", description: "Activewear made from recycled materials.", price: "₹55.00", fundsGenerated: "₹300,000", minimumInvestment: "₹12,000", daysLeft: 25 },
-        { id: 39, name: "Sustainable Denim", description: "Environmentally responsible denim.", price: "₹80.00", fundsGenerated: "₹500,000", minimumInvestment: "₹20,000", daysLeft: 30 }
+        { id: 37, name: "Patagonia Green", description: "Eco-friendly cotton clothing.", price: "₹40.00", fundsGenerated: "₹2,000", minimumInvestment: "₹10,000", daysLeft: 20 },
+        { id: 38, name: "Lulumelon Echo", description: "Activewear made from recycled materials.", price: "₹55.00", fundsGenerated: "₹3,000", minimumInvestment: "₹12,000", daysLeft: 25 },
+        { id: 39, name: "Everlane Denim", description: "Environmentally responsible denim.", price: "₹80.00", fundsGenerated: "₹500", minimumInvestment: "₹20,000", daysLeft: 30 }
       ]
     },
     {
       name: "Industrial",
       description: "Investment opportunities in advanced industrial solutions",
       products: [
-        { id: 46, name: "Smart Robotics", description: "Automated robotics for industry.", price: "₹1,200.00", fundsGenerated: "₹1,500,000", minimumInvestment: "₹75,000", daysLeft: 45 },
-        { id: 47, name: "Eco-Friendly Manufacturing", description: "Sustainable production processes.", price: "₹600.00", fundsGenerated: "₹700,000", minimumInvestment: "₹35,000", daysLeft: 20 },
-        { id: 48, name: "3D Printing Solutions", description: "Industrial-grade 3D printing.", price: "₹800.00", fundsGenerated: "₹1,000,000", minimumInvestment: "₹50,000", daysLeft: 30 }
+        { id: 46, name: "Boston Dynamics", description: "Automated robotics for industry.", price: "₹1200.00", fundsGenerated: "₹1,500,000", minimumInvestment: "₹7,50,0000", daysLeft: 45 },
+        { id: 47, name: "Tesla Factory", description: "Sustainable production processes.", price: "₹600.00", fundsGenerated: "₹7,00,000", minimumInvestment: "₹3,50,00,000", daysLeft: 20 },
+        { id: 48, name: "Stratasys Pro", description: "Industrial-grade 3D printing.", price: "₹800.00", fundsGenerated: "₹1,000,000", minimumInvestment: "₹50,00,000", daysLeft: 30 }
       ]
     },
     {
       name: "Food",
       description: "Innovative investments in food tech and sustainable agriculture",
       products: [
-        { id: 55, name: "Plant-Based Meat", description: "Delicious plant-based alternatives.", price: "₹20.00", fundsGenerated: "₹500,000", minimumInvestment: "₹20,000", daysLeft: 18 },
-        { id: 56, name: "Vertical Farming", description: "Urban agriculture for fresh produce.", price: "₹75.00", fundsGenerated: "₹300,000", minimumInvestment: "₹15,000", daysLeft: 28 },
-        { id: 57, name: "Organic Snack Brands", description: "Healthy and organic snacks.", price: "₹15.00", fundsGenerated: "₹200,000", minimumInvestment: "₹10,000", daysLeft: 15 }
+        { id: 55, name: "Beyond Meat", description: "Delicious plant-based alternatives.", price: "₹20.00", fundsGenerated: "₹5,000", minimumInvestment: "₹20,000", daysLeft: 18 },
+        { id: 56, name: "Aerofarms", description: "Urban agriculture for fresh produce.", price: "₹75.00", fundsGenerated: "₹3,000", minimumInvestment: "₹15,000", daysLeft: 28 },
+        { id: 57, name: "Kind Snacks", description: "Healthy and organic snacks.", price: "₹15.00", fundsGenerated: "₹2,000", minimumInvestment: "₹10,000", daysLeft: 15 }
       ]
     }
   ];
